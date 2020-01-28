@@ -7,12 +7,18 @@
  <?php if ($perfil == "usuario") { ?>
        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
            <input type="submit" class="btn btn-secondary" value="EditarPerfil" name="editarPerfil">
+           <br><br>
             <input type="submit" class="btn btn-secondary" value="BorrarCuenta" name="borrarCuenta">
+            <br><br>
+            <input type="submit" class="btn btn-secondary" value="Ir a Servicio REST" name="rest">
+             <br><br>
         </form>
     <?php } ?> 
      <?php if ($perfil == "administrador") { ?>
        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
            <input type="submit" class="btn btn-secondary" value="MantenimientoUsuarios" name="editarMiUsuario">
+            <br><br>
+            <input type="submit" class="btn btn-secondary" value="Ir a Servicio REST" name="rest">
         </form>
     <?php } ?> 
 </div>

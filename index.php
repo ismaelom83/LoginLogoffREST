@@ -22,6 +22,9 @@ if (isset($_SESSION['DAW209POOusuario'])) {
      if ($_SESSION["pagina"] == "miCuenta") {
         include_once $controladores["miCuenta"];
     }
+     if ($_SESSION["pagina"] == "rest") {
+        include_once $controladores["rest"];
+    }
     //si no existe la sesion de usuario pero existe la sesion pagina y es igual al registro requiere 
     //el controlador del registro y nios carga la pantalla de registro
 } else if (isset($_SESSION["pagina"]) && $_SESSION["pagina"] == "registro") {
