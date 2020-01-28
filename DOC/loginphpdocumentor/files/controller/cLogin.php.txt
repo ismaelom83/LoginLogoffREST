@@ -1,0 +1,67 @@
+<?php
+require_once 'model/Usuario.php';
+require_once 'model/UsuarioPDO.php';
+//variable para controlar el formulario
+$entradaOK = true;
+//Array de los errores
+$aErrores = [];
+//si pulsamos el boton salir nos saca de la aplicacion
+if (isset($_POST["salir"])) {
+    header("Location: ../DWES.php");
+}
+//si pulsamos el votor enviar del formulario nos ejecuta el programa y comprueba si se valida al usuario o no
+if (isset($_POST["enviar"])) {
+    $aErrores["codUsuario"] = validacionFormularios::comprobarAlfaNumerico($_POST["usuario"], 250, 1, 1);
+    $aErrores["password"] = validacionFormularios::comprobarAlfaNumerico($_POST["password"], 255, 4, 1);
+    foreach ($aErrores as $key => $value) {
+        if (!is_null($value)) {
+            $entradaOK = false;
+        }
+    }
+    //si la entrada  es correcta entramos en el if
+    if ($entradaOK) {
+        //almacenamos en una variable el usuario tecleado en el formulario
+        $codUsuario = $_POST["usuario"];
+        //alamacenamos en una variable el hash y la contraseña del usuario
+        $password = hash("SHA256", $codUsuario . $_POST["password"]);
+        //alamacenamos en una variable el valor dde la consulta validar usuario
+        $obUsuario = UsuarioPDO::validarUsuario($codUsuario, $password);
+        //si existe el usuario nos direcciona al index
+        if (is_object($obUsuario)) {
+            //asignamos la sesion del usuario a el usuario pasado por el formulario y logeado
+            $_SESSION["DAW209POOusuario"] = $codUsuario;
+            //asignamos los valores de la sesion con los get de la clase usuario
+            $_SESSION["perfil"] = $obUsuario->getPerfil();
+             $_SESSION["descripcion"] = $obUsuario->getDescUsuario();
+             //llamamos a la funcion contador visitas para que nos añada una vistita en la base de datos en el usuario logeado.
+             UsuarioPDO::contadorVisitas($codUsuario);
+             $_SESSION['accesos'] = $obUsuario->getContadorAccesos()+1;
+             //if para determinar que si ha habido mas de una conexion(no es la primera) establecemos una hora de ultima conexion.
+             if($_SESSION['accesos'] >1){
+                 $_SESSION['ultimaconexion'] = $obUsuario->getUltimaConexion();
+             }
+             
+             //y por ultimo nos dirigimos al index.
+            header("Location: index.php");
+        } else {
+            /**
+             * si no  existe el usuario nos direcciona al login
+             */
+            $vista = $vistas["login"];
+            require_once $vistas["layout"];
+        }
+    } else {
+        /**
+         * si no  existe el usuario nos direcciona al login
+         */
+        $vista = $vistas["login"];
+        require_once $vistas["layout"];
+    }
+} else {
+    /**
+     * si no  existe el usuario nos direcciona al login
+     */
+    $vista = $vistas["login"];
+    require_once $vistas["layout"];
+}
+

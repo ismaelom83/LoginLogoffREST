@@ -1,0 +1,328 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    width: 100%;
+    margin: 0 auto;
+}
+
+nav{
+    position: sticky;
+    top: 0px;
+    width: 10%;
+    height: 80vh;
+    float: left;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{ 
+    text-decoration: none;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom:15px;
+    text-align: center;
+}
+
+
+li a{
+    display: inline-block;
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #000;  
+}
+li a:hover{ 
+    background-color: grey;
+    color: white;
+
+}
+nav img{
+    margin: 7% 5%;
+}
+
+nav p{
+    text-align: center;
+}
+
+main{
+    width: 80%;
+    float: left;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center;
+    transition: all .1s ease-in-out;
+    background-image: url('../img/diagrama.png');
+    animation: banner 16s infinite linear;
+}
+
+.banner-content{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: rgba(0, 22, 40, .6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banner-content h1{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 30px;
+    font-size: 40px;
+    text-align: center;
+
+}
+
+.banner-content a{
+    text-decoration: none;
+    color: #fff;
+    padding: 9px 20px;
+    border: 1px solid white;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+}
+.banner-content a:link{
+    text-decoration: none;
+}
+
+.banner-content a:hover{
+    background-color: white;
+    color: #333;
+}
+@keyframes banner{
+    0%{
+        background-image: url('../img/banner-1.jpg');
+    }
+    25%{
+        background-image: url('../img/banner-1.jpg');
+    }
+    26%{
+        background-image: url('../img/banner-2.jpg');
+    }
+    50%{
+        background-image: url('../img/banner-2.jpg');
+    }
+    51%{
+        background-image: url('../img/banner-3.jpg');
+    }
+    75%{
+        background-image: url('../img/banner-3.jpg');
+    }
+    76%{
+        background-image: url('../img/banner-4.jpg');
+    }
+    100%{
+        background-image: url('../img/banner-4.jpg');
+    }
+}
+
+
+
+aside{
+    position: sticky;
+    top: 0px;
+    width: 10%;
+    float: right;
+    height: 80vh;
+}
+
+
+footer{
+    margin-top: 100px;
+    background:whitesmoke;
+    height: 150px;
+    clear: both;
+    position: relative;
+    z-index: 20;
+    width: 100%;
+}
+
+.footer-img{
+    text-align: center;
+    padding: 20px;
+
+}
+.footer-img a{
+    margin-left: 30px;
+    text-decoration: none;
+    color: grey;
+}
+.footer-img a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+/*      pagians secundarias       */
+
+
+.form3{  
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.form3 input{  
+  width: 80%;
+}
+#cerrarSesion1{
+  color: red;
+    text-align: left;
+}
+
+.inicio1{
+    text-align: center;
+}
+.diagrama{
+    font-size: 30px;
+
+}
+.diagrama:link{
+    text-decoration: none;
+}
+h4{
+    display: inline-block;
+    float: left;
+}
+.login-error{
+    color: red;
+    font-size: 30px;
+}
+
+h3 > a:link{
+    text-decoration: none;
+    color: green;
+}
+
+.verde{
+    color: green;
+}
+
+.rojo{
+    color: red;
+}
+
+.navbar-brand{
+    font-size: 36px; 
+}
+.navbar{      
+    height: 100px;
+    font-size: 36px;
+}
+.label1{
+    background-color: #00ffff;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-bottom: 2px;
+
+}
+
+form{
+    margin-left: 50px;
+}
+li>a>img{
+    float: right;
+}
+
+.conexionOK{
+    font-size: 40px;
+}
+.error{
+    text-align: center;
+    display: inline-block;
+    color: #ff708c;
+    float: right;
+    width: 100%;        
+    border-radius: 10%;
+}
+.nav-item{   
+    margin-left: 30px;
+
+}
+.nav-item >a{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.volver{
+    font-size: 34px;
+    color: red;
+}
+
+.h1{
+    text-align: right;
+    margin-right: 300px;
+}
+.div-navegador{
+    color: #503D39;
+}
+
+
+
+
+
+
+li a:link{
+    text-decoration: none;
+
+}
+footer a:link{
+    list-style: none;
+    text-decoration: none;
+}
+div a{
+    text-decoration: none;
+}
+
+
+input{
+    width: 300px;
+}
+
+.botones2 input{
+    width: 100%;  
+}
+
+.wrap{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    max-width: 500px;
+
+}
+
+fieldset{
+    width: 100%;
+    border:2px solid  blue;
+    padding: 15px; 
+    border-radius: 10px;
+}
+
+.login{
+    font-size: 60px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
