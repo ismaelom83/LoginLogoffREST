@@ -32,7 +32,7 @@
             </div>
         
             <label class="label2" for="password1"></label>
-            <input type="text" name="password1" id="password" class="form-control" placeholder="Inserta Password" value="<?php
+            <input type="password" name="password1" id="password" class="form-control" placeholder="Inserta Password" value="<?php
             if (isset($_POST['password1']) && is_null($aErrores['password1'])) { //comprobamos si ha introducido algo en el campo y que el array de errores este a null
                 echo $_POST['password1']; //aunque se muestre un campo mal el valor si es correcto se mantiene.
             }
@@ -44,7 +44,7 @@
             <?php } ?> 
            
             <label class="label2" for="password2"></label>
-            <input type="text" name="password2" id="password" class="form-control" placeholder="Vuelva a introducir Password" value="<?php
+            <input type="password" name="password2" id="password" class="form-control" placeholder="Vuelva a introducir Password" value="<?php
             if (isset($_POST['password2']) && is_null($aErrores['password2'])) { //comprobamos si ha introducido algo en el campo y que el array de errores este a null
                 echo $_POST['password2']; //aunque se muestre un campo mal el valor si es correcto se mantiene.
             }

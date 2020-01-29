@@ -7,7 +7,7 @@
             <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Introduce Usuario:" value="">
             
             <label for="password"></label><br>
-            <input type="text" name="password" id="password" class="form-control" placeholder="Introduce Password:" value="">                       
+            <input type="password" name="password" id="password" class="form-control" placeholder="Introduce Password:" value="">                       
             <br>
             <div class="botones2">
                 <input type="submit" name="enviar" id="enviar"  value="IniciarSesion" class="form-control  btn btn-secondary mb-1">

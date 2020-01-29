@@ -46,7 +46,7 @@
             <div class="footer-img"> <a href="../../../index.php">© 2020 Copyright: Ismael Heras Salvador</a> 
                 <a href="http://daw-usgit.sauces.local/heras/proyectoLoginLogoffPOO/tree/master" target="_blank" >
                     <img  src="WEBBROOT/img/gitLab.png" alt="GitLab"></a>
-                <a href="https://github.com/ismaelom83/proyectoLoginLogoffPOO" target="_blank" ><img  src="WEBBROOT/img/gitHub.png" alt="GitHub"></a>
+                <a href="https://github.com/ismaelom83/LoginLogoffREST" target="_blank" ><img  src="WEBBROOT/img/gitHub.png" alt="GitHub"></a>
                 <a href="https://www.zara.com/es/" target="_blank">pagina Imitada</a>
                  <a href="DOC/191013-indice-heraclio-tema2.pdf" target="_blank">Tecnologias y herramientas</a>
             </div>
