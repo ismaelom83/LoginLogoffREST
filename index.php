@@ -10,7 +10,7 @@ require_once './config/confDB.php';
 session_start();
 
 
-//si tenemos esesion entra en la estructura de control.
+//si tenemos esesion entra en la estructura de control
 if (isset($_SESSION['DAW209POOusuario'])) {
 //y si la pagina es igual a inicio carga el controlador de inicio
     if ($_SESSION["pagina"] == "inicio") {
