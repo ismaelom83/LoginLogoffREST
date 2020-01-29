@@ -16,11 +16,11 @@
     <body>
         <nav>
             <ul>
-                <li><a href="../../../index.php">HOME</a></li>
-                <li><a href="DOC/loginphpdocumentor/index.html">PHP Doc</a></li>
-                <li><a href="WEBBROOT/img/diagrama.png">Diagrama Clases</a></li>
-                <li><a href="DOC/200113CatalogoDeRequisitos.pdf">Catalogo De Requisitos</a></li>
-                <li><a href="DOC/casosdeuso.png">Casos De Uso</a></li>
+                <li><a href="../../../index.php" target="_blank">HOME</a></li>
+                <li><a href="DOC/loginphpdocumentor/index.html" target="_blank">PHP Doc</a></li>
+                <li><a href="WEBBROOT/img/diagrama.png" target="_blank">Diagrama Clases</a></li>
+                <li><a href="DOC/200113CatalogoDeRequisitos.pdf" target="_blank">Catalogo De Requisitos</a></li>
+                <li><a href="DOC/casosdeuso.png" target="_blank">Casos De Uso</a></li>
             </ul>
         </nav>
         <main>
@@ -37,14 +37,14 @@
                 <input type="submit"  value="CerrarSesion/Salir" name="cerrarSesion" id="cerrarSesion1">
             </form>
             <ul>
-                <li> <a href="WEBBROOT/img/estructuraalmacenamiento.png">Estructura de almacenamiento</a></li>
+                <li> <a href="WEBBROOT/img/estructuraalmacenamiento.png" target="_blank">Estructura de almacenamiento</a></li>
                 <li> <a href="DOC/datos.pdf">Modelo Fisico De Datos</a></li>
-                  <li><a href="WEBBROOT/img/navegacion.png">Arbol De Navegacion</a></li>
+                <li><a href="../WEBBROOT/img/arbol83.PNG" target="_blank">Arbol De Navegacion</a></li>
             </ul>
         </aside>
         <footer>
             <div class="footer-img"> <a href="../../../index.php">© 2020 Copyright: Ismael Heras Salvador</a> 
-                <a href="http://daw-usgit.sauces.local/heras/proyectoLoginLogoffPOO/tree/master" target="_blank" >
+                <a href="http://daw-usgit.sauces.local/heras/LoginLogoffREST/tree/master" target="_blank" >
                     <img  src="WEBBROOT/img/gitLab.png" alt="GitLab"></a>
                 <a href="https://github.com/ismaelom83/LoginLogoffREST" target="_blank" ><img  src="WEBBROOT/img/gitHub.png" alt="GitHub"></a>
                 <a href="https://www.zara.com/es/" target="_blank">pagina Imitada</a>
