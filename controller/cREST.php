@@ -31,11 +31,12 @@ if (isset($_GET["solicitarRest"])) {
     if ($entradaOK) {
         //guardamo en una variable la direccion del formulario
         $direccion = $_GET["direccion"];
-
+        //sustituimos los espacios por el simbolo de %20 para que el navegador lo reconozca.
+        $nuevadireccion= str_replace(" ", '%20', $direccion);
         //guardamos en unavariable la url para recibir el json expecifico para nuestra direccion.
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $direccion . "&key=AIzaSyCrSgHJZQygN2PiJN35GiTuc83XnVHSSlg";
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $nuevadireccion . "&key=AIzaSyCrSgHJZQygN2PiJN35GiTuc83XnVHSSlg";
         //trasmite el fichero json a una cadena.
-        $json = file_get_contents($url);
+        $json = file_get_contents(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $url));
         //convertimos el string decoficado de json en una variable.
         $datos = json_decode($json, true);
         //inicializamos las variables por que si no al recargar la vista si no ponemos nada en el input da error
