@@ -24,6 +24,13 @@ if (isset($_POST["rest"])) {
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
+if (isset($_POST["MtoDep"])) {
+    $_SESSION['DAW209POOusuario'];
+    header('Location: index.php'); //Se le redirige al index
+    $_SESSION["pagina"] = "MtoDep"; //Se guarda en la variable de sesión la ventana de registro
+    require_once $vistas["layout"]; //Se carga la vista correspondiente
+    exit;
+}
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario

@@ -1,4 +1,4 @@
-w/**
+/**
  * Author:  Ismael Heras
  * Created: 27-nov-2019
  */
@@ -25,6 +25,15 @@ INSERT INTO T01_Usuarios(T01_CodUsuario, T01_DescUsuario, T01_Password,T01_NumAc
     ('amor','Amor Rodriguez',SHA2('amorpaso',256),0),
     ('maria','Maria Casado',SHA2('mariapaso',256),0),
     ('antonio','Antonio Janez',SHA2('antoniopaso',256),0);
+
+
+INSERT INTO `T02_Departamento` (`T02_CodDepartamento`, `T02_DescDepartamento`, `T02_FechaBaja`, `T02_VolumenNegocio`) VALUES
+('DAW', 'Despiege de aplicaciones', NULL, 3),
+('DWS', 'Entorno servidor', NULL, 123),
+('DIW', 'Interfaces WEB', '2019-11-26', 1),
+('DWC', 'Entorno Cliente', '2019-11-24', 1),
+('EIE', 'Empresa', NULL, 1);
+
 
 -- Usuario con el rol admin --
 INSERT INTO T01_Usuarios(T01_CodUsuario, T01_DescUsuario, T01_Password,T01_Perfil,T01_NumAccesos) VALUES ('admin','admin',SHA2('adminpaso',256),'administrador',0);

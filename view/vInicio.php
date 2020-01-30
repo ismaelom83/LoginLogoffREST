@@ -12,6 +12,8 @@
             <br><br>
             <input type="submit" class="btn btn-secondary" value="Ir a Servicio REST" name="rest">
              <br><br>
+             <input type="submit" class="btn btn-secondary" value="MtoDepartamentos" name="MtoDep">
+             <br><br>
         </form>
     <?php } ?> 
      <?php if ($perfil == "administrador") { ?>

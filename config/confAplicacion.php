@@ -20,6 +20,7 @@ $controladores = [
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
     'miCuenta' => 'controller/cMiCuenta.php',
     'rest' => 'controller/cREST.php',
+    'departamentos' => 'controller/cMtoDepartamentos.php',
 ];
 
 $vistas = [
@@ -30,6 +31,7 @@ $vistas = [
     'borrarCuenta' => 'view/vBorrarCuenta.php',
     'miCuenta' => 'view/vMiCuenta.php',
     'rest' => 'view/vREST.php',
+     'departamentos' => 'view/vMtoDepartamentos.php',
 ];
 
 

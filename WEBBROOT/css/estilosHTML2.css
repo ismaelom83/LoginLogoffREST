@@ -330,7 +330,22 @@ fieldset{
 }
 
 
+/*-----------------mantenimiento------------------------------------*/
 
 
 
+table{
+    margin: 0 auto;
+    padding: 10px;
+    
+}
 
+th{
+    padding: 10px;
+    background: aqua;
+}
+
+td{
+    background: wheat;
+    padding: 10px;
+}

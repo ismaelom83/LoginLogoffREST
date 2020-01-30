@@ -21,6 +21,13 @@
         T01_FechaHoraUltimaConexion timestamp 
     );
 
+ CREATE TABLE IF NOT EXISTS T02_Departamento(
+        T02_CodDepartamento varchar(3) PRIMARY KEY,
+        T02_DescDepartamento varchar(255) NOT null,
+        T02_FechaBaja date DEFAULT null, -- Valor por defecto null, ya que cuando lo creas no puede estar de baja logica
+        T02_VolumenNegocio float NOT null
+    );
+
 -- Crear del usuario --
     CREATE USER IF NOT EXISTS 'usuarioDAW209DBLoginPOO'@'%' identified BY 'paso'; 
 
