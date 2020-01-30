@@ -1,5 +1,10 @@
 <?php
 
+$entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
+//Inicializamos un array que se encargara de recoger los errores(Campos vacios)
+$aErrores = [
+    'direccion' => null
+];
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
@@ -16,38 +21,39 @@ if (isset($_GET["cancelaRest"])) {
 }
 //si hemos pulsado el boton de solocuitar del formularioo entramos.
 if (isset($_GET["solicitarRest"])) {
+    $aErrores['direccion'] = validacionFormularios::comprobarAlfabetico($_GET['direccion'], 64, 2, 1); //maximo, mínimo y opcionalidad
+    //Autenticación con la base de datos
+    foreach ($aErrores as $key => $value) {
+        if ($value != NULL) {
+            $entradaOK = false;
+        }
+    }
+    if ($entradaOK) {
+        //guardamo en una variable la direccion del formulario
+        $direccion = $_GET["direccion"];
 
-    //guardamo en una variable la direccion del formulario
-    $direccion = $_GET["direccion"];
+        //guardamos en unavariable la url para recibir el json expecifico para nuestra direccion.
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $direccion . "&key=AIzaSyCrSgHJZQygN2PiJN35GiTuc83XnVHSSlg";
+        //trasmite el fichero json a una cadena.
+        $json = file_get_contents($url);
+        //convertimos el string decoficado de json en una variable.
+        $datos = json_decode($json, true);
+        //inicializamos las variables por que si no al recargar la vista si no ponemos nada en el input da error
+        $latitud = "";
+        $longitud = "";
+        //almacenamos en una variable los datos optenidos (con postmas previamentye hemos estudiado el arreglo 
+        //y sabemos donde estan la longitud y la latitud) del arreglo del json
+        $latitud = $datos["results"][0]["geometry"]["location"]["lat"];
+        $longitud = $datos["results"][0]["geometry"]["location"]["lng"];
 
-    //guardamos en unavariable la url para recibir el json expecifico para nuestra direccion.
-    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $direccion . "&key=AIzaSyCrSgHJZQygN2PiJN35GiTuc83XnVHSSlg";
-    //trasmite el fichero json a una cadena.
-    $json = file_get_contents($url);
-    //convertimos el string decoficado de json en una variable.
-    $datos = json_decode($json, true);
-
-    //almacenamos en una variable los datos optenidos (con postmas previamentye hemos estudiado el arreglo y sabemos donde estan la longitud y la latitud) del arreglo del json
-    $latitud = $datos["results"][0]["geometry"]["location"]["lat"];
-    $longitud = $datos["results"][0]["geometry"]["location"]["lng"];
-    //mostramos por pantalla la longitud y la latitud de la ciudad.
-//    echo "<h5>".'La latitud es: ' . $latitud."</h5>";
-//    echo '<br>';
-//    echo "<h5>".'La longitud es: ' . $longitud."</h5>";
-
-    $vista = $vistas["rest"];
-//metemos en la sesion en la pagina que estamos.
-    $_SESSION["pagina"] = "rest";
-
-
-    require_once $vistas["layout"];
-} else {
-$longitud;
-$longitud;
-    $vista = $vistas["rest"];
-//metemos en la sesion en la pagina que estamos.
-    $_SESSION["pagina"] = "rest";
-
-
-    require_once $vistas["layout"];
+        $vista = $vistas["rest"];
+        //metemos en la sesion en la pagina que estamos.
+        $_SESSION["pagina"] = "rest";
+    }
 }
+//mostramos las vistas del rest
+$vista = $vistas["rest"];
+//metemos en la sesion en la pagina que estamos.
+$_SESSION["pagina"] = "rest";
+require_once $vistas["layout"];
+

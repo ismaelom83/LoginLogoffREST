@@ -1,10 +1,19 @@
 
-<h3>Solicitar servicio REST a google geolocation para saber las cordenadas de una localidad</h3>
+<h3>Solicitar servicio REST a google geolocation para saber las cordenadas de una ciudad del mundo y si pones un pais te pone la de la capital</h3>
 <div class="wrap">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset>
             <label for="">Poblacion</label><br>
-            <input type="text" name="direccion" placeholder="Introduce Poblacion">
+            <input type="text" name="direccion" placeholder="Introduce Poblacion" value="<?php
+            if ($aErrores['direccion'] == NULL && isset($_POST['direccion'])) {
+                echo $_POST['direccion'];
+            }
+            ?>">
+                   <?php if ($aErrores['direccion'] != NULL) { ?>
+                <div class="error">
+                    <?php echo $aErrores['direccion']; //Mensaje de error que tiene el array aErrores?>
+                </div>   
+            <?php } ?>  
             <br><br>
             <div class="botones2">
                 <input type="submit" name="solicitarRest" value="Solicitar servicio REST"  class="form-control  btn btn-secondary mb-1">  
@@ -16,14 +25,14 @@
 </div>
 <div class="cordenadas">
     <h2>Cordenadas</h2>
-<p><?php
-    if (isset($_GET["solicitarRest"])) {
-        echo "La Latitud de ".$direccion." es: ".$latitud;
-    }
-    ?></p>
-<p><?php
-    if (isset($_GET["solicitarRest"])) {
-        echo "La Longitud de ".$direccion." es: ".$longitud;
-    }
-    ?></p>
+    <p><?php
+        if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
+            echo "La Latitud de " . $direccion . " es: " . trim($latitud);
+        }
+        ?></p>
+    <p><?php
+        if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
+            echo "La Longitud de " . $direccion . " es: " . trim($longitud);
+        }
+        ?></p>
 </div>
