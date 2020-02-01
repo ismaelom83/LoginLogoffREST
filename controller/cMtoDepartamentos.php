@@ -3,7 +3,7 @@
 
 if (isset($_GET['codigo'])) {
     header('Location: index.php'); //Se le redirige al index
-     $_SESSION['DAW209POODepartamento'];
+     $_SESSION['DAW209POODepartamento']=$_GET['codigo'];
     $_SESSION["pagina"] = "modDep"; //Se guarda en la variable de sesión la ventana de registro
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
