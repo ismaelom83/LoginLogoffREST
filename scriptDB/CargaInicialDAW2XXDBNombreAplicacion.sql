@@ -30,8 +30,8 @@ INSERT INTO T01_Usuarios(T01_CodUsuario, T01_DescUsuario, T01_Password,T01_NumAc
 INSERT INTO `T02_Departamento` (`T02_CodDepartamento`, `T02_DescDepartamento`, `T02_FechaBaja`, `T02_VolumenNegocio`) VALUES
 ('DAW', 'Despiege de aplicaciones', NULL, 3),
 ('DWS', 'Entorno servidor', NULL, 123),
-('DIW', 'Interfaces WEB', '2019-11-26', 1),
-('DWC', 'Entorno Cliente', '2019-11-24', 1),
+('DIW', 'Interfaces WEB', NULL, 1),
+('DWC', 'Entorno Cliente', NULL, 1),
 ('EIE', 'Empresa', NULL, 1);
 
 

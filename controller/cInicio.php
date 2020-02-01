@@ -25,7 +25,9 @@ if (isset($_POST["rest"])) {
     exit;
 }
 if (isset($_POST["MtoDep"])) {
-    $_SESSION['DAW209POOusuario'];
+    
+   $_SESSION['DAW209POODepartamento'];
+   
     header('Location: index.php'); //Se le redirige al index
     $_SESSION["pagina"] = "MtoDep"; //Se guarda en la variable de sesión la ventana de registro
     require_once $vistas["layout"]; //Se carga la vista correspondiente

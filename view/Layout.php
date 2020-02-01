@@ -15,7 +15,7 @@
 
     <body>
         <nav>
-            <?php if (!isset($_SESSION['DAW209POOusuario'])) { ?>
+            <?php if (!isset($_SESSION['DAW209POOusuario']) && isset($_SESSION['DAW209POODepartamento'])) { ?>
                 <ul>
                     <li><a href="../../../index.php" target="_blank">HOME</a></li>
                     <li><a href="DOC/loginphpdocumentor/index.html" target="_blank">PHP Doc</a></li>
@@ -38,7 +38,7 @@
             <form class="form3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <input type="submit"  value="CerrarSesion/Salir" name="cerrarSesion" id="cerrarSesion1">
             </form>
-            <?php if (!isset($_SESSION['DAW209POOusuario'])) { ?>
+            <?php if (!isset($_SESSION['DAW209POOusuario']) && isset($_SESSION['DAW209POODepartamento'])) { ?>
                 <ul>
                     <li> <a href="WEBBROOT/img/estructuraalmacenamiento.png" target="_blank">Estructura de almacenamiento</a></li>
                     <li> <a href="DOC/datos.pdf">Modelo Fisico De Datos</a></li>

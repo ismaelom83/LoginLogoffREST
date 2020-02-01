@@ -21,6 +21,7 @@ $controladores = [
     'miCuenta' => 'controller/cMiCuenta.php',
     'rest' => 'controller/cREST.php',
     'departamentos' => 'controller/cMtoDepartamentos.php',
+    'modDep' => 'controller/cConsultarModificarDepartamento.php',
 ];
 
 $vistas = [
@@ -32,6 +33,5 @@ $vistas = [
     'miCuenta' => 'view/vMiCuenta.php',
     'rest' => 'view/vREST.php',
      'departamentos' => 'view/vMtoDepartamentos.php',
+    'modDep' => 'view/vConsultarModificarDepartamento.php',
 ];
-
-
