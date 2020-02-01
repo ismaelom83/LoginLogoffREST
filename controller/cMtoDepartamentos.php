@@ -1,15 +1,15 @@
 
 <?php
-
+require_once 'model/Departamento.php';
+require_once 'model/DepartamentoPDO.php';
 if (isset($_GET['codigo'])) {
     header('Location: index.php'); //Se le redirige al index
      $_SESSION['DAW209POODepartamento']=$_GET['codigo'];
+    $_SESSION['DAW209POOusuario'] = $_GET['codigo'];
     $_SESSION["pagina"] = "modDep"; //Se guarda en la variable de sesión la ventana de registro
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
-require_once 'model/Departamento.php';
-require_once 'model/DepartamentoPDO.php';
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto
 //manejo del control de errores.
 //manejo de las variables del formulario

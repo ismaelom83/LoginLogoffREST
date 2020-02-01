@@ -17,8 +17,6 @@ if (isset($_POST["volverModDep"])) {
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 
- 
-
 //require_once  'core/validacionFormularios.php'; //importamos la libreria de validacion  
 define('OBLIGATORIO', 1); //constante que define que un campo es obligatorio.
 define('NOOBLIGATORIO', 0); //constante que define que un campo NO es obligatorio.
@@ -29,6 +27,21 @@ $aErrores = ['DescDepartamentos' => null,
 //manejo de las variables del formulario
 $aFormulario = ['DescDepartamentos' => null,
     'VolumenNegocio' => null];
+//si esta definida la variable y no es null almacenamos en una variable el codigo del registro recogido con $_GET
+//y realizamos una consulta de todos los campos con ese codigo.
+if (isset($_SESSION['DAW209POOusuario'])) {
+   $codDEpartamento = $_SESSION['DAW209POOusuario'];
+    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo("DAW");
+    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
+    $codDEpartamento = $_SESSION['DAW209POODepartamento']->getCodDepartamento(); 
+}
+if (isset($_SESSION['DAW209POODepartamento'])) {
+    $_SESSION['DAW209POOusuario'];
+    $codDEpartamento = $_SESSION['DAW209POODepartamento']->getCodDepartamento(); 
+    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDEpartamento);
+    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
+    
+}
 if (isset($_POST['modificar'])) {
     //La posición del array de errores recibe el mensaje de error si hubiera.
     $aErrores['DescDepartamentos'] = validacionFormularios::comprobarAlfaNumerico($_POST['DescDepartamentos'], 255, 1, 1);
@@ -43,28 +56,15 @@ if (isset($_POST['modificar'])) {
 } else {
     $entradaOK = false; //Cambiamos el valor de la variable si no se pulsa enviar.
 }
-
 if ($entradaOK) {//si la variable entradaOK esta el true ejecutamos el codigo.
     //el valor del array ahora es igual al de los campos recogidos en el formulario.
    $desc =   $_POST['DescDepartamentos'];
    $volumen  = $_POST['VolumenNegocio'];
-   
-   DepartamentoPDO::modificaDepartamento("DAW", $desc, $volumen);
+  $cod = $_SESSION['DAW209POODepartamento']->getCodDepartamento();
+   DepartamentoPDO::modificaDepartamento($cod, $desc, $volumen);
      $_SESSION['pagina'] = 'MtoDep';
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;
-   
- 
-}
-//si esta definida la variable y no es null almacenamos en una variable el codigo del registro recogido con $_GET
-//y realizamos una consulta de todos los campos con ese codigo.
-if (isset($_SESSION['DAW209POODepartamento'])) {
-
-  
-   $codDEpartamento = $_SESSION['DAW209POODepartamento'];
-    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo("DAW");
-    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
-    
 }
 
 $descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();

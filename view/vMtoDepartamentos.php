@@ -35,7 +35,7 @@
         </thead>
         <tbody>
             <?php
-            while ($campoTabla = $obDepartamento->fetchObject()) {
+            while ($campoTabla = $obDepartamento->fetchObject()){
                 echo '<tr>';
                 echo "<td>" . '<b>' . $campoTabla->T02_CodDepartamento . "</td>" . "<td>" . '</b>' . '<b>' . $campoTabla->T02_DescDepartamento .
                 "</td>" ."<td>" . '<b>' . $campoTabla->T02_VolumenNegocio . "</td>" . "<td>" . '<b>' . "<a href='".$_SERVER['PHP_SELF']."?codigo= $campoTabla->T02_CodDepartamento'><img src='WEBBROOT/img/modificar.png'/></a>" . "</td>";
