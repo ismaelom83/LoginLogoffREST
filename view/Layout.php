@@ -18,7 +18,7 @@
                 <ul>
                     <li><a href="../../../index.php" target="_blank">HOME</a></li>
                     <li><a href="DOC/loginphpdocumentor/index.html" target="_blank">PHP Doc</a></li>
-                    <li><a href="WEBBROOT/img/diagrama.png" target="_blank">Diagrama Clases</a></li>
+                    <li><a href="DOC/diagrama.pdf" target="_blank">Diagrama Clases</a></li>
                     <li><a href="DOC/200113CatalogoDeRequisitos.pdf" target="_blank">Catalogo De Requisitos</a></li>
                     <li><a href="DOC/casosdeuso.png" target="_blank">Casos De Uso</a></li>
                 </ul>
@@ -40,7 +40,7 @@
             <?php if (!isset($_SESSION['DAW209POOusuario'])) { ?>
                 <ul>
                     <li> <a href="WEBBROOT/img/estructuraalmacenamiento.png" target="_blank">Estructura de almacenamiento</a></li>
-                    <li> <a href="DOC/datos.pdf">Modelo Fisico De Datos</a></li>
+                    <li> <a href="../DOC/BD.pdf">Modelo Fisico De Datos</a></li>
                     <li><a href="WEBBROOT/img/arbolfinal.png" target="_blank">Arbol De Navegacion</a></li>
                 </ul>
             <?php } ?> 
