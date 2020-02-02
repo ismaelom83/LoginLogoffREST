@@ -35,7 +35,7 @@ class DepartamentoPDO {
     }
     
      public static function bajaFisicaDepartamento($codDepartamento) {
-        $consulta = "DELETE FROM T02_Departamento WHERE T02_CodDepartamento LIKE ? ;"; //Creacion de la consulta.
+        $consulta = "DELETE FROM T02_Departamento WHERE T02_CodDepartamento = ? ;"; //Creacion de la consulta.
         DBPDO::ejecutaConsulta($consulta, [$codDepartamento]); //Ejecutamos la consulta.
     }
 

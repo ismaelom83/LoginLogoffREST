@@ -4,7 +4,7 @@
         <fieldset>
             <div class="obligatorio">
                 <label for="CodDep">Codigo</label> 
-                <input type="text" name="CodDep" placeholder="" disabled class="form-control " value=" <?php echo $codDEpartamento; ?> ">                                              
+                <input type="text" name="CodDep" placeholder="" disabled class="form-control " value=" <?php echo $codDepartamento; ?> ">                                              
             </div>
             <br>
             <div class="obligatorio">
@@ -13,10 +13,10 @@
             </div>
             <br>
              <label class="label2" for="volumenNeg">VolumenNegocio</label>
-            <input type="text" name="volumenNeg" id="rol" class="form-control" disabled  value="<?php echo $volumenNegocio; ?>">
+            <input type="text" name="volumenNeg" id="rol" class="form-control" disabled  value="<?php  echo $volumenNegocio; ?>">
             <br>
             <div class="botones2">
-                <input type="submit" name="eliminarDept" value="EliminarCuenta" class="form-control  btn btn-secondary mb-1">    
+                <input type="submit" name="eliminarDept" value="EliminarDepartamento" class="form-control  btn btn-secondary mb-1">    
                 <input type="submit" name="cancelar" value="Cancelar" class="form-control  btn btn-secondary mb-1">                                       
                 <br>
             </div>

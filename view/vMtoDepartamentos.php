@@ -31,7 +31,7 @@
                             Descripcion
                         </th>
                         <th>
-                            VolumenNegocio
+                            VolumenNegociod
                         </th>
                     </tr>
                 </thead>
@@ -45,6 +45,7 @@
                               .  "<td>" . '<b>' . "<a href='" . $_SERVER['PHP_SELF'] . "?codigoBorrar=$campoTabla->T02_CodDepartamento'><img src='WEBBROOT/img/borrar2.png'/></a>" . "</td>" ;
                         echo '</tr>';
                     }
+                    
                     ?>
                 </tbody>
             </table>

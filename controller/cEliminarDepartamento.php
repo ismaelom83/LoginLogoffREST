@@ -12,22 +12,20 @@ if (isset($_REQUEST["cerrarSesion"])) {
     header("location: index.html");
 }
 if (isset($_POST["cancelar"])) {
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION['DAW209POOusuario'];
     $_SESSION["pagina"] = "MtoDep"; //Se guarda en la variable de sesión la ventana de registro
-    require_once $vistas["layout"]; //Se carga la vista correspondiente
+      header('Location: index.php'); //Se le redirige al index
     exit;
 }
 
 if(isset($_SESSION['DAW209POODepartamento'])){
-     $codDEpartamento = $_SESSION['DAW209POODepartamento'];
-     $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo("DIW");
-     $_SESSION['DAW209POODepartamento'] = $objetoDepartamento; 
+    $_SESSION['DAW209POOusuario'];
+     $codDepartamento = $_SESSION['DAW209POODepartamento'];
+     $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDepartamento);
 }
 
-if (isset($_REQUEST["eliminarDept"]) && isset($_SESSION['DAW209POODepartamento'])) {
-
-   $cod = $_SESSION['DAW209POODepartamento']->getCodDepartamento();
-  
+if (isset($_REQUEST["eliminarDept"])) {
+   $cod = $objetoDepartamento->getCodDepartamento();
     DepartamentoPDO::bajaFisicaDepartamento($cod);
 
     //destruye la sesion del usuario
@@ -38,8 +36,8 @@ if (isset($_REQUEST["eliminarDept"]) && isset($_SESSION['DAW209POODepartamento']
     header("location: index.html");
 } 
 
-    $descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();
-    $volumenNegocio =  $_SESSION["DAW209POODepartamento"]->getVolumenDeNegocio();
+    $descripcion = $objetoDepartamento->getDescDepartamento();
+    $volumenNegocio =  $objetoDepartamento->getVolumenDeNegocio();
     
     $vista = $vistas["borrarDep"];
 //metemos en la sesion en la pagina que estamos.

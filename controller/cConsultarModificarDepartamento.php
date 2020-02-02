@@ -9,9 +9,9 @@ if (isset($_REQUEST["cerrarSesion"])) {
     header("location: index.html");
 }
 if (isset($_POST["volverModDep"])) {
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION['DAW209POOusuario'];
     $_SESSION["pagina"] = "MtoDep"; //Se guarda en la variable de sesión la ventana de registro
-    require_once $vistas["layout"]; //Se carga la vista correspondiente
+     header('Location: index.php'); //Se le redirige al index
     exit;
 }
 require_once 'model/Departamento.php';
@@ -33,7 +33,6 @@ if (isset($_SESSION['DAW209POODepartamento'])) {
     $_SESSION['DAW209POOusuario'];
     $codDEpartamento = $_SESSION['DAW209POODepartamento'];
     $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDEpartamento);
-    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
 }
 if (isset($_POST['modificar'])) {
     //La posición del array de errores recibe el mensaje de error si hubiera.
@@ -53,13 +52,13 @@ if ($entradaOK && isset($_SESSION['DAW209POODepartamento'])) {//si la variable e
     //el valor del array ahora es igual al de los campos recogidos en el formulario.
     $desc = $_POST['DescDepartamentos'];
     $volumen = $_POST['VolumenNegocio'];
-    DepartamentoPDO::modificaDepartamento($_SESSION['DAW209POODepartamento']->getCodDepartamento(), $desc, $volumen);
+    DepartamentoPDO::modificaDepartamento($objetoDepartamento->getCodDepartamento(), $desc, $volumen);
     $_SESSION['pagina'] = 'MtoDep';
     header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
     exit;
 }
-$descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();
-$volumenNegocio = $_SESSION["DAW209POODepartamento"]->getVolumenDeNegocio();
+$descripcion = $objetoDepartamento->getDescDepartamento();
+$volumenNegocio = $objetoDepartamento->getVolumenDeNegocio();
 //mostramos las vistas del rest
 $vista = $vistas["modDep"];
 //metemos en la sesion en la pagina que estamos.

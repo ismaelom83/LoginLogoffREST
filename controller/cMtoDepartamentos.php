@@ -33,9 +33,9 @@ if (isset($_REQUEST["cerrarSesion"])) {
     header("location: index.html");
 }
 if (isset($_POST["volverDe"])) {
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION['DAW209POOusuario'];
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
-    require_once $vistas["layout"]; //Se carga la vista correspondiente
+      header('Location: index.php'); //Se le redirige al index
     exit;
 }
 if (isset($_POST['enviarDepartamentos'])) {//si esta definida la variable i no es null decimos que nuestro array es igual al valor que recogemos en el campo buscar 
