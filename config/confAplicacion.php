@@ -22,6 +22,7 @@ $controladores = [
     'rest' => 'controller/cREST.php',
     'departamentos' => 'controller/cMtoDepartamentos.php',
     'modDep' => 'controller/cConsultarModificarDepartamento.php',
+    'borrarDep' => 'controller/cEliminarDepartamento.php',
 ];
 
 $vistas = [
@@ -34,4 +35,5 @@ $vistas = [
     'rest' => 'view/vREST.php',
      'departamentos' => 'view/vMtoDepartamentos.php',
     'modDep' => 'view/vConsultarModificarDepartamento.php',
+    'borrarDep' => 'view/vEliminarDepartamento.php',
 ];

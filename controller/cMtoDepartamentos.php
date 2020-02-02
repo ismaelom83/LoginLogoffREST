@@ -3,11 +3,18 @@
 
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
-if (isset($_GET['codigo'])) {
-//    $_SESSION['DAW209POOusuario'] = $_GET['codigo'];
-//    $_SESSION['DAW209POODepartamento'] = $_GET['codigo'];
-    $_SESSION['DAW209POODepartamento'] = DepartamentoPDO::buscarDepartamentoPorCodigo("EIE");
+if (isset($_GET['codigoModificar'])) {
+    $_SESSION['DAW209POOusuario'] = $_GET['codigoModificar'];
+    $_SESSION['DAW209POODepartamento'] = $_GET['codigoModificar'];
     $_SESSION["pagina"] = "modDep";
+    header('Location: index.php'); //Se le redirige al index
+    exit;
+}
+
+if (isset($_GET['codigoBorrar'])) {
+    $_SESSION['DAW209POOusuario'] = $_GET['codigoBorrar'];
+    $_SESSION['DAW209POODepartamento'] = $_GET['codigoBorrar'];
+    $_SESSION["pagina"] = "borrarDep";
     header('Location: index.php'); //Se le redirige al index
     exit;
 }
@@ -39,6 +46,7 @@ if (isset($_POST['enviarDepartamentos'])) {//si esta definida la variable i no e
 if ($aFormulario['DescDepartamentos'] != null) {
     $obDepartamento = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $aFormulario ['DescDepartamentos'] . "%");
 } else {
+    
     $obDepartamento = DepartamentoPDO::buscarDepartamento();
 //    $_SESSION['DAW209POODepartamento'] = $obDepartamento;
     $vista = $vistas["departamentos"];

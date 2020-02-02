@@ -29,13 +29,12 @@ $aFormulario = ['DescDepartamentos' => null,
     'VolumenNegocio' => null];
 //si esta definida la variable y no es null almacenamos en una variable el codigo del registro recogido con $_GET
 //y realizamos una consulta de todos los campos con ese codigo.
-//if (isset($_SESSION['DAW209POODepartamento'])) {
-//    $_SESSION['DAW209POOusuario'];
-//    $codDEpartamento = $_SESSION['DAW209POODepartamento']->getCodDepartamento(); 
-//    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDEpartamento);
-//    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
-//    
-//}
+if (isset($_SESSION['DAW209POODepartamento'])) {
+    $_SESSION['DAW209POOusuario'];
+    $codDEpartamento = $_SESSION['DAW209POODepartamento'];
+    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDEpartamento);
+    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
+}
 if (isset($_POST['modificar'])) {
     //La posición del array de errores recibe el mensaje de error si hubiera.
     $aErrores['DescDepartamentos'] = validacionFormularios::comprobarAlfaNumerico($_POST['DescDepartamentos'], 255, 1, 1);
@@ -50,19 +49,17 @@ if (isset($_POST['modificar'])) {
 } else {
     $entradaOK = false; //Cambiamos el valor de la variable si no se pulsa enviar.
 }
-if ($entradaOK) {//si la variable entradaOK esta el true ejecutamos el codigo.
+if ($entradaOK && isset($_SESSION['DAW209POODepartamento'])) {//si la variable entradaOK esta el true ejecutamos el codigo.
     //el valor del array ahora es igual al de los campos recogidos en el formulario.
-   $desc =   $_POST['DescDepartamentos'];
-   $volumen  = $_POST['VolumenNegocio'];
-  $cod = $_SESSION['DAW209POODepartamento']->getCodDepartamento();
-   DepartamentoPDO::modificaDepartamento($cod, $desc, $volumen);
-     $_SESSION['pagina'] = 'MtoDep';
-            header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
-            exit;
+    $desc = $_POST['DescDepartamentos'];
+    $volumen = $_POST['VolumenNegocio'];
+    DepartamentoPDO::modificaDepartamento($_SESSION['DAW209POODepartamento']->getCodDepartamento(), $desc, $volumen);
+    $_SESSION['pagina'] = 'MtoDep';
+    header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
+    exit;
 }
-
-//$descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();
-//$volumenNegocio = $_SESSION["DAW209POODepartamento"]->getVolumenDeNegocio();
+$descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();
+$volumenNegocio = $_SESSION["DAW209POODepartamento"]->getVolumenDeNegocio();
 //mostramos las vistas del rest
 $vista = $vistas["modDep"];
 //metemos en la sesion en la pagina que estamos.

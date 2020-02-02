@@ -1,12 +1,12 @@
 <?php
 
-class Departamento{
-    
+class Departamento {
+
     private $codDepartamento;
     private $descDepartamento;
     private $volumenDeNegocio;
     private $fechaBajaDepartamento;
-    
+
     function __construct($codDepartamento, $descDepartamento, $volumenDeNegocio, $fechaBajaDepartamento) {
         $this->codDepartamento = $codDepartamento;
         $this->descDepartamento = $descDepartamento;
@@ -46,6 +46,8 @@ class Departamento{
         $this->fechaBajaDepartamento = $fechaBajaDepartamento;
     }
 
- 
-    
+    public function __toString() {
+        return $this->$codDepartamento;
+    }
+
 }
