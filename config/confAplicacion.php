@@ -23,6 +23,7 @@ $controladores = [
     'departamentos' => 'controller/cMtoDepartamentos.php',
     'modDep' => 'controller/cConsultarModificarDepartamento.php',
     'borrarDep' => 'controller/cEliminarDepartamento.php',
+    'altaDep' => 'controller/cAltaDepartamento.php',
 ];
 
 $vistas = [
@@ -36,4 +37,5 @@ $vistas = [
      'departamentos' => 'view/vMtoDepartamentos.php',
     'modDep' => 'view/vConsultarModificarDepartamento.php',
     'borrarDep' => 'view/vEliminarDepartamento.php',
+    'altaDep' => 'view/vAltaDepartamento.php',
 ];

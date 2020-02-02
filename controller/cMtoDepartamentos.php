@@ -4,21 +4,23 @@
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 if (isset($_GET['codigoModificar'])) {
-    $_SESSION['DAW209POOusuario'] = $_GET['codigoModificar'];
     $_SESSION['DAW209POODepartamento'] = $_GET['codigoModificar'];
     $_SESSION["pagina"] = "modDep";
     header('Location: index.php'); //Se le redirige al index
     exit;
 }
 
-if (isset($_GET['codigoBorrar'])) {
-    $_SESSION['DAW209POOusuario'] = $_GET['codigoBorrar'];
+if (isset($_GET['codigoBorrar'])) {;
     $_SESSION['DAW209POODepartamento'] = $_GET['codigoBorrar'];
     $_SESSION["pagina"] = "borrarDep";
     header('Location: index.php'); //Se le redirige al index
     exit;
 }
-
+if (isset($_POST['altaDep'])) {;
+    $_SESSION["pagina"] = "altaDep";
+    header('Location: index.php'); //Se le redirige al index
+    exit;
+}
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto
 //manejo del control de errores.
 //manejo de las variables del formulario
@@ -33,7 +35,6 @@ if (isset($_REQUEST["cerrarSesion"])) {
     header("location: index.html");
 }
 if (isset($_POST["volverDe"])) {
-    $_SESSION['DAW209POOusuario'];
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
       header('Location: index.php'); //Se le redirige al index
     exit;

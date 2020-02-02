@@ -12,7 +12,9 @@
             <div class="botones2">
                 <input type="submit" name="enviarDepartamentos" value="Buscar" id="enviar">
                 <br><br>
-                <input type="submit" name="volverDe" value="volverInicio" > 
+                <input type="submit" name="volverDe" value="volverInicio"> 
+                <br><br>
+                <input type="submit" name="altaDep" value="AltaDepartamento"> 
             </div>
         </fieldset>
     </form>

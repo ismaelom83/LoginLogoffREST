@@ -1,10 +1,5 @@
 <?php
 
-$entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
-//Inicializamos un array que se encargara de recoger los errores(Campos vacios)
-$aErrores = [
-    'direccion' => null
-];
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
@@ -19,6 +14,11 @@ if (isset($_GET["cancelaRest"])) {
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
+$entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
+//Inicializamos un array que se encargara de recoger los errores(Campos vacios)
+$aErrores = [
+    'direccion' => null
+];
 //si hemos pulsado el boton de solocuitar del formularioo entramos.
 if (isset($_GET["solicitarRest"])) {
     $aErrores['direccion'] = validacionFormularios::comprobarAlfabetico($_GET['direccion'], 64, 2, 1); //maximo, mínimo y opcionalidad

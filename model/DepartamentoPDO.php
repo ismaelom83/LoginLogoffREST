@@ -15,7 +15,6 @@ class DepartamentoPDO {
             return $departamento;
         }   
     }
-
     public static function buscarDepartamentosPorDescripcion($busqueda) {
         $consulta = "select * from T02_Departamento where T02_DescDepartamento LIKE ?;";
         $resultadoConsulta = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
@@ -37,6 +36,19 @@ class DepartamentoPDO {
      public static function bajaFisicaDepartamento($codDepartamento) {
         $consulta = "DELETE FROM T02_Departamento WHERE T02_CodDepartamento = ? ;"; //Creacion de la consulta.
         DBPDO::ejecutaConsulta($consulta, [$codDepartamento]); //Ejecutamos la consulta.
+    }
+       public static function altaDepartamento($codDepartamento, $descDepartamento, $vol){
+       $consulta = "INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES(?,?,?)";
+        DBPDO::ejecutaConsulta($consulta, [$codDepartamento, $descDepartamento, $vol]);
+    }
+    
+     public static function validaCodNoExiste($codDepartamento){
+        $consulta = "SELECT T02_CodDepartamento FROM T02_Departamento WHERE T02_CodDepartamento=?;";
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consulta, [$codDepartamento]);
+         if($resultadoConsulta->rowCount() == 1){
+             return false;
+         }
+        return true;
     }
 
 }
