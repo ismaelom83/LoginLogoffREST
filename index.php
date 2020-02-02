@@ -13,30 +13,10 @@ session_start();
 
 //si tenemos esesion entra en la estructura de control.
 if (isset($_SESSION['DAW209POOusuario'])) {
-//y si la pagina es igual a inicio carga el controlador de inicio.
-    if ($_SESSION["pagina"] == "inicio") {
-        include_once $controladores["inicio"];
-    }
-    if ($_SESSION["pagina"] == "borrarCuenta") {
-        include_once $controladores["borrarCuenta"];
-    }
-     if ($_SESSION["pagina"] == "miCuenta") {
-        include_once $controladores["miCuenta"];
-    }
-     if ($_SESSION["pagina"] == "rest") {
-        include_once $controladores["rest"];
-    }
-     if ($_SESSION["pagina"] == "MtoDep") {
-        include_once $controladores["departamentos"];
-    }
-    if ($_SESSION["pagina"] == "modDep") {
-        include_once $controladores["modDep"];
-    }
-    if ($_SESSION["pagina"] == "borrarDep") {
-        include_once $controladores["borrarDep"];
-    }
-    if ($_SESSION["pagina"] == "altaDep") {
-        include_once $controladores["altaDep"];
+ //Si ha accedido a alguna pagina, será mandado a la correspondiente
+    if(isset($_SESSION["pagina"])){
+        $controlador=$controladores[$_SESSION["pagina"]]; //Se almacena el controlador de la ventana en la variable
+        require_once $controlador; //Se incluye el controlador
     }
     //si no existe la sesion de usuario pero existe la sesion pagina y es igual al registro requiere.
     //el controlador del registro y nios carga la pantalla de registro

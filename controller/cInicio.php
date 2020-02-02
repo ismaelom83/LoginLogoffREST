@@ -2,24 +2,24 @@
 
 //si pulsamos el boton nos lleva  al registro.
 if (isset($_POST["borrarCuenta"])) {
-    $_SESSION["pagina"] = "borrarCuenta"; //Se guarda en la variable de sesión la ventana de registro
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION["pagina"] = "borrarCuenta"; 
+    header('Location: index.php');
     exit;
 }
 //si pulsamos el boton nos lleva  al registro.
 if (isset($_POST["editarPerfil"])) {
-    $_SESSION["pagina"] = "miCuenta"; //Se guarda en la variable de sesión la ventana de registro
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION["pagina"] = "miCuenta"; 
+    header('Location: index.php');
     exit;
 }
 if (isset($_POST["rest"])) {
-    $_SESSION["pagina"] = "rest"; //Se guarda en la variable de sesión la ventana de registro
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION["pagina"] = "rest"; 
+    header('Location: index.php');
     exit;
 }
 if (isset($_POST["MtoDep"])) {
-    $_SESSION["pagina"] = "MtoDep"; //Se guarda en la variable de sesión la ventana de registro
-    header('Location: index.php'); //Se le redirige al index
+    $_SESSION["pagina"] = "MtoDep"; 
+    header('Location: index.php'); 
     exit;
 }
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
@@ -29,7 +29,8 @@ if (isset($_REQUEST["cerrarSesion"])) {
     unset($_SESSION['pagina']);
     //nos dirige al login
     header("location: index.html");
-}  //si no estaremos en el inicio
+}
+//si no estaremos en el inicio
 //asignamos los valores de la sesion del usuario logeado en variables que mostraremos en la vista.
 $saludoInicial = "Hola " . $_SESSION["DAW209POOusuario"]->getDescUsuario() . " Bienvenido a la aplicacion LoginLogoffPOO";
 //sacamos el perfil del usuario y damos acceso alas funcionalidades de cada rol.

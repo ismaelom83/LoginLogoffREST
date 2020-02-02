@@ -28,12 +28,9 @@ if (isset($_REQUEST["eliminarDept"])) {
    $cod = $objetoDepartamento->getCodDepartamento();
     DepartamentoPDO::bajaFisicaDepartamento($cod);
 
-    //destruye la sesion del usuario
-    unset($_SESSION['DAW209POODepartamento']);
-    unset($_SESSION['DAW209POOusuario']);
-    unset($_SESSION['pagina']);
-    //nos dirige al login
-    header("location: index.html");
+  $_SESSION['pagina'] = 'MtoDep';
+    header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
+    exit;
 } 
 
     $descripcion = $objetoDepartamento->getDescDepartamento();
