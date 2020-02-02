@@ -15,7 +15,7 @@ class DepartamentoPDO {
             return $departamento;
         }
 
-        return false;
+     
     }
 
     public static function buscarDepartamentosPorDescripcion($busqueda) {

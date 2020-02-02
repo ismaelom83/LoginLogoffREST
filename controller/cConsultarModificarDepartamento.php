@@ -29,19 +29,13 @@ $aFormulario = ['DescDepartamentos' => null,
     'VolumenNegocio' => null];
 //si esta definida la variable y no es null almacenamos en una variable el codigo del registro recogido con $_GET
 //y realizamos una consulta de todos los campos con ese codigo.
-if (isset($_SESSION['DAW209POOusuario'])) {
-   $codDEpartamento = $_SESSION['DAW209POOusuario'];
-    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo("DAW");
-    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
-    $codDEpartamento = $_SESSION['DAW209POODepartamento']->getCodDepartamento(); 
-}
-if (isset($_SESSION['DAW209POODepartamento'])) {
-    $_SESSION['DAW209POOusuario'];
-    $codDEpartamento = $_SESSION['DAW209POODepartamento']->getCodDepartamento(); 
-    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDEpartamento);
-    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
-    
-}
+//if (isset($_SESSION['DAW209POODepartamento'])) {
+//    $_SESSION['DAW209POOusuario'];
+//    $codDEpartamento = $_SESSION['DAW209POODepartamento']->getCodDepartamento(); 
+//    $objetoDepartamento = DepartamentoPDO::buscarDepartamentoPorCodigo($codDEpartamento);
+//    $_SESSION['DAW209POODepartamento'] = $objetoDepartamento;
+//    
+//}
 if (isset($_POST['modificar'])) {
     //La posición del array de errores recibe el mensaje de error si hubiera.
     $aErrores['DescDepartamentos'] = validacionFormularios::comprobarAlfaNumerico($_POST['DescDepartamentos'], 255, 1, 1);
@@ -67,8 +61,8 @@ if ($entradaOK) {//si la variable entradaOK esta el true ejecutamos el codigo.
             exit;
 }
 
-$descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();
-$volumenNegocio = $_SESSION["DAW209POODepartamento"]->getVolumenDeNegocio();
+//$descripcion = $_SESSION["DAW209POODepartamento"]->getDescDepartamento();
+//$volumenNegocio = $_SESSION["DAW209POODepartamento"]->getVolumenDeNegocio();
 //mostramos las vistas del rest
 $vista = $vistas["modDep"];
 //metemos en la sesion en la pagina que estamos.

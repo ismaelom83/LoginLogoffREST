@@ -1,15 +1,17 @@
 
 <?php
+
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 if (isset($_GET['codigo'])) {
+//    $_SESSION['DAW209POOusuario'] = $_GET['codigo'];
+//    $_SESSION['DAW209POODepartamento'] = $_GET['codigo'];
+    $_SESSION['DAW209POODepartamento'] = DepartamentoPDO::buscarDepartamentoPorCodigo("EIE");
+    $_SESSION["pagina"] = "modDep";
     header('Location: index.php'); //Se le redirige al index
-     $_SESSION['DAW209POODepartamento']=$_GET['codigo'];
-    $_SESSION['DAW209POOusuario'] = $_GET['codigo'];
-    $_SESSION["pagina"] = "modDep"; //Se guarda en la variable de sesión la ventana de registro
-    require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
+
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto
 //manejo del control de errores.
 //manejo de las variables del formulario
@@ -18,7 +20,7 @@ $aFormulario ['DescDepartamentos'] = null;
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
     unset($_SESSION['DAW209POOusuario']);
-     unset($_SESSION['DAW209POODepartamento']);
+    unset($_SESSION['DAW209POODepartamento']);
     unset($_SESSION['pagina']);
     //nos dirige al login
     header("location: index.html");
@@ -37,7 +39,6 @@ if (isset($_POST['enviarDepartamentos'])) {//si esta definida la variable i no e
 if ($aFormulario['DescDepartamentos'] != null) {
     $obDepartamento = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $aFormulario ['DescDepartamentos'] . "%");
 } else {
-
     $obDepartamento = DepartamentoPDO::buscarDepartamento();
 //    $_SESSION['DAW209POODepartamento'] = $obDepartamento;
     $vista = $vistas["departamentos"];
