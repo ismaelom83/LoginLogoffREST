@@ -334,18 +334,19 @@ fieldset{
 
 
 
-table{
+.tablaDepartamentos{
     margin: 0 auto;
     padding: 10px;
+    margin-bottom: 30px;
     
 }
 
 th{
     padding: 10px;
-    background: aqua;
+    background: grey;
 }
 
 td{
-    background: wheat;
+    background: lightgrey;
     padding: 10px;
 }

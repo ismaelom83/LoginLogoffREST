@@ -23,7 +23,7 @@
 <div class="wrap">
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset> 
-            <table border="1">
+            <table border="1" class="tablaDepartamentos">
                 <thead>
                     <tr>
                         <th>
