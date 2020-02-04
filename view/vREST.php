@@ -1,5 +1,6 @@
 
 <h3>Solicitar servicio REST a google geolocation para saber las cordenadas de una ciudad del mundo y si pones un pais te pone la de la capital</h3>
+<a href="https://developers.google.com/maps/documentation/directions/start?hl=es" target="_blank">Ir a la API de Google geolocation</a>
 <div class="wrap">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset>
