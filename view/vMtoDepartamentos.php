@@ -1,21 +1,32 @@
 
-<div class="wrap">
+<div class="wrap wrap1">
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <fieldset>                  
-            BUSCAR DEPARTAMENTOS: 
-            <input type="text" name="DescDepartamentos" placeholder="coincidencia con descripcion" id="buscar" value="<?php
+          
+            <div class="botones2"> 
+                <br><br>
+                <input type="submit" name="volverDe" class="btn btn-secondary" value="volverInicio"> 
+                <br><br>
+                <input type="submit" name="altaDep" class="btn btn-secondary" value="AltaDepartamento"> 
+            </div>
+          
+        </fieldset>
+    </form>
+</div>
+<div class="wrap wrap2">
+    <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <fieldset>                  
+
+            <br><br>
+              BUSCAR DEPARTAMENTOS: 
+            <input type="text" name="DescDepartamentos"  placeholder="coincidencia con descripcion" id="buscar" value="<?php
             if (isset($_POST['DescDepartamentos'])) {
                 echo $_POST['DescDepartamentos'];
             }
             ?>"> 
+                        <br><br>
+            <input type="submit" name="enviarDepartamentos" class="btn btn-secondary" value="Buscar" id="enviar">
             <br><br>
-            <div class="botones2">
-                <input type="submit" name="enviarDepartamentos" value="Buscar" id="enviar">
-                <br><br>
-                <input type="submit" name="volverDe" value="volverInicio"> 
-                <br><br>
-                <input type="submit" name="altaDep" value="AltaDepartamento"> 
-            </div>
         </fieldset>
     </form>
 </div>

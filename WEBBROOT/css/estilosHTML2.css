@@ -298,12 +298,19 @@ footer a:link{
 div a{
     text-decoration: none;
 }
-
+.botones3{
+    float: right;
+}
 
 input{
     width: 300px;
 }
-
+.wrap2{
+    float: left;
+}
+.wrap1{
+    float: right;
+}
 .botones2 input{
     width: 100%;  
 }
