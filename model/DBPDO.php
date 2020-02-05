@@ -23,9 +23,9 @@ class DBPDO {
       /**
        * funcion para ejecutar una o varias consultas  a la base de datos.
        * 
-       * @param type $sentenciaSQL sentencia de tipo sql (insert, delete, update , select). 
-       * @param type $parametros parametros que nos piden para consulta
-       * @return type devuelve un tipo de consulta a la base de datos
+       * @param type string 
+       * @param type string
+       * @return type string
        */
     public static function ejecutaConsulta($sentenciaSQL, $parametros){
         try {

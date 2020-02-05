@@ -1,5 +1,22 @@
 <?php
-
+/**
+ * Class Departamento
+ *
+ * Clase para definir el objeto departamento
+ *
+ * Clase que es la unica que tiene acceso a la base de datos y ejecuta las consultas a la misma.
+ * 
+ * PHP version 7.3
+ *
+ * @category ejecucion
+ * @package  LoginLogoffMulticapaMVC
+ * @source Departamento.php
+ * @since 1.5
+ * @copyright 5-02-2020
+ * @author  Ismael Heras Salvador
+ * 
+ * 
+ */
 class Departamento {
 
     private $codDepartamento;

@@ -1,12 +1,7 @@
 <?php
 
-/**
- * requerimos la clase validacion de formulrios
- */
 require_once 'core/validacionFormularios.php';
-/**
- * requerimos las clases del modelo
- */
+
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioPDO.php';
 require_once 'model/DBPDO.php';
