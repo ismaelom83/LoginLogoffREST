@@ -28,6 +28,18 @@
         T02_VolumenNegocio float NOT null
     );
 
+CREATE TABLE T03_provincias (
+  id int(11) NOT NULL,
+  T03_pid_provincia smallint(6) DEFAULT NULL,
+  T03_pprovincia varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `provincias`
+--
+
+
+
 -- Crear del usuario --
     CREATE USER IF NOT EXISTS 'usuarioDAW209DBLoginPOO'@'%' identified BY 'paso'; 
 

@@ -15,6 +15,10 @@ class Geolocation{
         $this->poblacion = $poblacion;
     }
     
-    
+    public static function buscarpoblacion(){
+        
+             
+    return null;
+    }
     
 }

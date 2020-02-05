@@ -18,7 +18,7 @@
         <fieldset>                  
 
             <br><br>
-              BUSCAR DEPARTAMENTOS: 
+              BUSQUEDA POR DESCRIPCION: 
             <input type="text" name="DescDepartamentos"  placeholder="coincidencia con descripcion" id="buscar" value="<?php
             if (isset($_POST['DescDepartamentos'])) {
                 echo $_POST['DescDepartamentos'];
