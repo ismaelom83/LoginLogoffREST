@@ -15,7 +15,7 @@
  * @source DBPDO.php
  * @since 1.0
  * @copyright 15-01-2020
- * @author  Ismael Heras Salvador
+ * @author  Ismael Heras Salvador.
  * 
  * 
  */
