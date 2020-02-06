@@ -17,18 +17,16 @@
             <?php if (!isset($_SESSION['DAW209POOusuario'])) { ?>
                 <ul>
                     <li><a href="../../../index.php" target="_blank">HOME</a></li>
-                    <li><a href="DOC/diagrama.pdf" target="_blank">Diagrama Clases</a></li>
                     <li><a href="DOC/200113CatalogoDeRequisitos.pdf" target="_blank">Catalogo De Requisitos</a></li>
-                    <li><a href="DOC/casosdeuso.png" target="_blank">Casos De Uso</a></li>
                 </ul>
             <?php } ?> 
         </nav>
         <main>
             <section class="banner">
-                <div class="banner-content">
+<!--                <div class="banner-content">
                     <h1>bienvenidos</h1>
                     <a href="#">Ve Mas</a>
-                </div>
+                </div>-->
             </section>
             <?php require_once $vista; ?> 
         </main>
@@ -36,11 +34,14 @@
             <form class="form3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <input type="submit"  value="CerrarSesion/Salir" name="cerrarSesion" id="cerrarSesion1">
             </form>
+              <?php if ($_SESSION["pagina"] == "rest" || $_SESSION["pagina"] == "MtoDep") { ?>
+               <form class="form3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                 <input type="submit" name="volverInicio" value="VolverInicio" class="form-control  btn btn-secondary mb-1"> 
+            </form>
+            <?php } ?> 
             <?php if (!isset($_SESSION['DAW209POOusuario'])) { ?>
                 <ul>
                     <li> <a href="WEBBROOT/img/estructuraalmacenamiento.png" target="_blank">Estructura de almacenamiento</a></li>
-                    <li> <a href="../DOC/BD.pdf">Modelo Fisico De Datos</a></li>
-                    <li><a href="WEBBROOT/img/arbolfinal.png" target="_blank">Arbol De Navegacion</a></li>
                 </ul>
             <?php } ?> 
         </aside>
@@ -52,7 +53,7 @@
 <!--                <a href="https://github.com/ismaelom83/LoginLogoffREST" target="_blank" ><img  src="WEBBROOT/img/gitHub.png" alt="GitHub"></a>-->
                 <a href="DOC/loginphpdocumentor/index.html" target="_blank" ><img  src="WEBBROOT/img/documentor.png" alt="PHP"></a>
                 <a href="https://www.zara.com/es/" target="_blank">pagina Imitada</a>
-                <a href="DOC/191013-indice-heraclio-tema2.pdf" target="_blank">Tecnologias y herramientas</a>
+                <a href="DOC/200204-tema2.pdf" target="_blank">Tecnologias y herramientas</a>
             </div>
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -13,6 +13,7 @@ if (isset($_POST["editarPerfil"])) {
     exit;
 }
 if (isset($_POST["rest"])) {
+    $_SESSION["RestApi"];
     $_SESSION["pagina"] = "rest"; 
     header('Location: index.php');
     exit;

@@ -7,7 +7,7 @@ if (isset($_REQUEST["cerrarSesion"])) {
     //nos dirige al login
     header("location: index.html");
 }
-if (isset($_POST["volverDe"])) {
+if (isset($_POST["volverInicio"])) {
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
       header('Location: index.php'); //Se le redirige al index
     exit;

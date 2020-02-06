@@ -5,8 +5,6 @@
           
             <div class="botones2"> 
                 <br><br>
-                <input type="submit" name="volverDe" class="btn btn-secondary" value="volverInicio"> 
-                <br><br>
                 <input type="submit" name="altaDep" class="btn btn-secondary" value="AltaDepartamento"> 
             </div>
           

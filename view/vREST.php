@@ -1,39 +1,78 @@
 
-<h3>Solicitar servicio REST a google geolocation para saber las cordenadas de una ciudad del mundo y si pones un pais te pone la de la capital</h3>
-<a href="https://developers.google.com/maps/documentation/directions/start?hl=es" target="_blank">Ir a la API de Google geolocation</a>
-<div class="wrap">
+<div class="wrapRest">
+    <a href="https://developers.google.com/maps/documentation/directions/start?hl=es" target="_blank">Ir a API de Google geolocation</a>
+    <p>Consumiendo Servicio Rest que introduces<br> una localidad y te da las cordenadas</p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset>
             <label for="">Poblacion</label><br>
-            <input type="text" name="direccion" placeholder="Introduce Poblacion" value="<?php
-            if ($aErrores['direccion'] == NULL && isset($_POST['direccion'])) {
-                echo $_POST['direccion'];
+            <input type="text" name="direccion" placeholder="Introduce Ciudad" value="<?php
+            if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
+                echo $poblacion ;
             }
             ?>">
-                   <?php if ($aErrores['direccion'] != NULL) { ?>
+
+            <?php if ($aErrores['direccion'] != NULL) { ?>
                 <div class="error">
                     <?php echo $aErrores['direccion']; //Mensaje de error que tiene el array aErrores?>
                 </div>   
             <?php } ?>  
             <br><br>
-            <div class="botones2">
+            <div class="botonesRest">
                 <input type="submit" name="solicitarRest" value="Solicitar servicio REST"  class="form-control  btn btn-secondary mb-1">  
                 <br><br>
-                <input type="submit" name="cancelaRest" value="Cancelar" class="form-control  btn btn-secondary mb-1">  
+
             </div>
         </fieldset>
     </form>
-</div>
-<div class="cordenadas">
-    <h2>Cordenadas</h2>
-    <p><?php
+    <div class="cordenadas">
+        <h2>Cordenadas</h2>
+
+        <label for="latitud">Latitud</label>
+        <input type="text"  id="latitud" placeholder="latitud" value="<?php
         if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-            echo "La Latitud de " . $direccion . " es: " . trim($latitud);
+            echo trim($latitud);
         }
-        ?></p>
-    <p><?php
+        ?>">
+        <br>
+        <label for="longitud">Longitud</label>
+        <input type="text"  id="latitud" placeholder="latitud" value="<?php
         if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-            echo "La Longitud de " . $direccion . " es: " . trim($longitud);
+            echo trim($longitud);
         }
-        ?></p>
+        ?>">
+
+    </div>
 </div>
+<div class="wrapRest2">
+    <a href="https://developers.google.com/maps/documentation/maps-static/dev-guide?hl=es" target="_blank">Ir a API de Google MAP Static</a>
+    <p>Consumiendo Servicio Rest que introduces una<br> localidad te muestra un mapoa estatico</p>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+        <fieldset>
+            <label for="">Poblacion</label><br>
+            <input type="text" name="direccionMapaEstatico" placeholder="Introduce Ciudad" value="<?php
+            if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
+                echo $direccionMapaEstatico;
+            }
+            ?>">
+                   <?php if ($aErrores['direccionMapaEstatico'] != NULL) { ?>
+                <div class="error">
+                    <?php echo $aErrores['direccionMapaEstatico']; //Mensaje de error que tiene el array aErrores?>
+                </div>   
+            <?php } ?>  
+            <br><br>
+            <div class="botonesRest">
+                <input type="submit" name="solicitarRestMapa" value="Solicitar servicio REST"  class="form-control  btn btn-secondary mb-1">  
+                <br><br>
+<!--                <input type="submit" name="cancelaRest" value="Cancelar" class="form-control  btn btn-secondary mb-1">  -->
+            </div>
+        </fieldset>
+    </form>
+    <div class="cordenadas">
+        <img src="<?php
+        if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
+            echo $urlMapaEtatico;
+        }
+        ?>">
+    </div>
+</div>
+
