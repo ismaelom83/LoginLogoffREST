@@ -2,23 +2,31 @@
 
 class Geolocation{
     
-    private $poblacion;
-    
-    function __construct($poblacion) {
-        $this->poblacion = $poblacion;
-    }
-    function getPoblacion() {
-        return $this->poblacion;
-    }
+   private $longitud;
+   private $latitud;
+   
+   function __construct($longitud, $latitud) {
+       $this->longitud = $longitud;
+       $this->latitud = $latitud;
+   }
+   
+   function getLongitud() {
+       return $this->longitud;
+   }
 
-    function setPoblacion($poblacion) {
-        $this->poblacion = $poblacion;
-    }
-    
-    public static function buscarpoblacion(){
-        
-             
-    return null;
-    }
+   function getLatitud() {
+       return $this->latitud;
+   }
+
+   function setLongitud($longitud) {
+       $this->longitud = $longitud;
+   }
+
+   function setLatitud($latitud) {
+       $this->latitud = $latitud;
+   }
+
+
+
     
 }
