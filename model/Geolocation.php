@@ -24,9 +24,5 @@ class Geolocation{
 
    function setLatitud($latitud) {
        $this->latitud = $latitud;
-   }
-
-
-
-    
+   } 
 }
