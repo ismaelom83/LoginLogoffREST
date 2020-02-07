@@ -1,7 +1,6 @@
 <?php
 
 include_once 'Geolocation.php';
-include_once 'MapaEstatico.php';
 class Rest{
     
     public static function cordenadas($poblacion) {

@@ -17,7 +17,7 @@
 
             <br><br>
               BUSQUEDA POR DESCRIPCION: 
-            <input type="text" name="DescDepartamentos"  placeholder="coincidencia con descripcion" id="buscar" value="<?php
+              <input type="text" name="DescDepartamentos" autocomplete="off"  placeholder="coincidencia con descripcion" id="buscar" value="<?php
             if (isset($_POST['DescDepartamentos'])) {
                 echo $_POST['DescDepartamentos'];
             }
@@ -42,7 +42,7 @@
                             Descripcion
                         </th>
                         <th>
-                            VolumenNegociod
+                            VolumenNegocio
                         </th>
                     </tr>
                 </thead>

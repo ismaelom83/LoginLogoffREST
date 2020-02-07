@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
     unset($_SESSION['DAW209POODepartamento']);
