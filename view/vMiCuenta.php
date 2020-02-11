@@ -8,7 +8,12 @@
             <br>
             <div class="obligatorio">
                 <label for="DescUsuario">Descripcion</label>
-                <input type="text" name="DescUsuario" placeholder="Introduce Descripcion" class="form-control " value="<?php echo $descripcion ?>">  
+                <input type="text" name="DescUsuario" placeholder="Introduce Descripcion" class="form-control " value="<?php echo $descripcion ?>"> 
+                  <?php if ($aErrores["DescUsuario"] != NULL) { ?>
+                           <div class="error">
+                               <?php echo $aErrores["DescUsuario"]; //Mensaje de error que tiene el array aErrores       ?>
+                    </div>   
+                <?php } ?>   
             </div>
             <br>
             <label class="label2" for="rol">Perfil</label>

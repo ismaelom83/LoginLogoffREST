@@ -12,6 +12,7 @@ body{
     margin: 0 auto;
 }
 .wrapRest{
+    height: 380px;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid black;
@@ -21,13 +22,26 @@ body{
    width: 200px;
 }
 .wrapRest2{
+    height: 380px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    border: 1px solid black;
+    float: left;
+}
+.wrapRest2 input{
+   width: 200px;
+}
+.wrapRest83{
+    height: 380px;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 30px;
     border: 1px solid black;
     float: right;
 }
-.wrapRest2 input{
+.wrapRest83 input{
    width: 200px;
 }
 nav{
@@ -36,6 +50,9 @@ nav{
     width: 10%;
     height: 80vh;
     float: left;
+}
+.mapaEstatico{
+    text-align: center;
 }
 .botonesRest{
     width: 200px;
@@ -62,11 +79,32 @@ ul li{
 @media all and (max-width:980px){
     .wrapRest2{
     padding: 10px;
+    margin-left: -20px;
     margin-top: 10px;
     border: 1px solid black;
     float: left;
 }
 .wrapRest2 input{
+   width: 200px;
+}
+   .wrapRest83{
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    float: left;
+}
+.wrapRest83 input{
+   width: 200px;
+}
+}
+@media all and (max-width:1506px){
+   .wrapRest83{
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    float: left;
+}
+.wrapRest83 input{
    width: 200px;
 }
 }

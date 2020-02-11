@@ -29,4 +29,25 @@ class Rest{
       
       return $urlPosicionMapa;
     }
+    
+    
+    public static function myApiREST($codDepartamento){
+        //Inicia una nueva sesión y devuelve el manipulador curl para el uso de las funciones
+        $myCurl = curl_init(); 
+        //la url con el codigo de departamento para que al usuario la devuelva al introducirla el volumen de negocio
+        $url = "http://daw209.sauces.local/proyectoDWES/LoginLogoffREST/api/apiRest.php?codigo=" . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos
+        //cogemos los datos de esa url
+        curl_setopt($myCurl, CURLOPT_URL, $url); 
+         //guardamos el resultado en el curl_exec
+        curl_setopt($myCurl, CURLOPT_RETURNTRANSFER, 1);
+        //devolvemos  el curl_exec 
+        $resultadoUrl = curl_exec($myCurl); 
+        $resultadoApi = json_decode($result,true);
+        //cerramos el curl
+        curl_close($curl); 
+
+        return $resultadoApi;   
+    }
+
+    
 }

@@ -6,7 +6,7 @@ require_once 'model/UsuarioPDO.php';
 //variable para controlar el formulario
 $entradaOK = true;
 //Array de los errores
-$aErrores = [];
+$aErrores = ['DescUsuario' => null];
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
@@ -28,9 +28,14 @@ if (isset($_POST["editarUsuario"])) {
             $entradaOK = false;
         }
     }
+}else {
+    $entradaOK = false; //mientras no se pulse el boton la variable esta el false.
+}
+    
    if ($entradaOK) {
        
     $descUsuario = $_POST["DescUsuario"];
+    
     $codUsuario = $_SESSION['DAW209POOusuario']->getCodUsuario();
     
             $objetoUsuario = UsuarioPDO::modificarUsuario($descUsuario, $codUsuario);
@@ -39,7 +44,7 @@ if (isset($_POST["editarUsuario"])) {
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;
    }
-} else {
+
 
     $usuario = $_SESSION["DAW209POOusuario"]->getCodUsuario();
     $descripcion = $_SESSION["DAW209POOusuario"]->getDescUsuario();
@@ -50,5 +55,5 @@ if (isset($_POST["editarUsuario"])) {
     $_SESSION["pagina"] = "miCuenta";
 
     require_once $vistas["layout"];
-}
+
 
