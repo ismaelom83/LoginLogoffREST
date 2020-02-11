@@ -77,29 +77,4 @@
     </div>
 </div>
 
-<div class="wrapRest83">
-    <a href="#" target="_blank">Como funcina mi API</a>
-    <p>API propia que si introduces un codigo de  <br>departamento te devuelve el volumen de negocio</p>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-        <fieldset>
-            <label for="">Codigo Departamento</label><br>
-            <input type="text" name="codigoDepartamentoAPI" placeholder="Introduce Codigo" value="<?php
-            if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
-                echo $direccionMapaEstatico;
-            }
-            ?>">
-                   <?php if ($aErrores['direccionMapaEstatico'] != NULL) { ?>
-                <div class="error">
-                    <?php echo $aErrores['direccionMapaEstatico']; //Mensaje de error que tiene el array aErrores?>
-                </div>   
-            <?php } ?>  
-            <br><br>
-            <div class="botonesRest">
-                <input type="submit" name="solicitarRestMapa" value="Solicitar servicio REST"  class="form-control  btn btn-secondary mb-1">  
-                <br><br>
-<!--                <input type="submit" name="cancelaRest" value="Cancelar" class="form-control  btn btn-secondary mb-1">  -->
-            </div>
-        </fieldset>
-    </form>
-</div>
 

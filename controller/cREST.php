@@ -1,5 +1,4 @@
 <?php
-
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
@@ -15,11 +14,13 @@ if (isset($_POST["volverInicio"])) {
     exit;
 }
 require_once 'model/REST.php';
+require_once 'model/DepartamentoPDO.php';
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
 //Inicializamos un array que se encargara de recoger los errores(Campos vacios)
 $aErrores = [
     'direccion' => null,
-    'direccionMapaEstatico' => null
+    'direccionMapaEstatico' => null,
+    'solicitarAPIPropia' => null
 ];
 //si hemos pulsado el boton de solocuitar del formularioo entramos.
 if (isset($_GET["solicitarRest"]) ) {
@@ -59,6 +60,33 @@ if (isset($_GET["solicitarRestMapa"])){
     //requerimos la clase rest para que nos de el metodo mapaaestatico y conseguir la url con las cordenadas de la localidad y nos lo muestre la vista
     //el metodo nos pide la direcion que introducimos en el input.
    $urlMapaEtatico = Rest::mapaEstatico($direccionMapaEstatico);      
+    }
+}
+
+//si hemos pulsado el boton de solocuitar del formularioo entramos.
+if (isset($_GET["solicitarAPIPropia"])){
+   $_SESSION['DAW209POOusuario'] = $_GET['codigoDepartamentoAPI'];
+    $aErrores['solicitarAPIPropia'] = validacionFormularios::comprobarAlfabetico($_GET['codigoDepartamentoAPI'], 64, 2, 1); //maximo, mínimo y opcionalidad
+    //Autenticación con la base de datos
+    foreach ($aErrores as $key => $value) {
+        if ($value != NULL) {
+            $entradaOK = false;
+        }
+    }
+    
+    if ($entradaOK) {
+        //guardamo en una variable la direccion del formulario para saber el codigo del departamento.
+//        $solicitarAPIPropia = $_GET["codigoDepartamentoAPI"];
+    //requerimos la clase rest para que nos de el metodo myapirest y conseguir la url con las cordenadas de la localidad y nos lo muestre la vista
+    //el metodo nos pide la direcion que introducimos en el input.
+//   $urlMapasEtatico = Rest::myApiREST($solicitarAPIPropia); 
+   
+    $codigoDepartamento =    $_SESSION['DAW209POOusuario'];
+        
+   $volumenNegocio = DepartamentoPDO::buscarDepartamentoPorCodigo($codigoDepartamento);
+   
+   $volumenNegocio->getVolumenDeNegocio();
+   
     }
 }
 //mostramos las vistas del rest
