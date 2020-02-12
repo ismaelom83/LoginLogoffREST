@@ -1,31 +1,63 @@
 <?php
-require_once 'model/Usuario.php';
-require_once 'model/UsuarioPDO.php';
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+//si pulsamos el boton nos lleva  al registro.
+if (isset($_POST["borrarCuenta"])) {
+    $_SESSION["pagina"] = "borrarCuenta"; 
+    header('Location: index.php');
+    exit;
+}
+//si pulsamos el boton nos lleva  al registro.
+if (isset($_POST["editarPerfil"])) {
+    $_SESSION["pagina"] = "miCuenta"; 
+    header('Location: index.php');
+    exit;
+}
+if (isset($_POST["rest"])) {
+    $_SESSION["RestApi"];
+    $_SESSION["pagina"] = "rest"; 
+    header('Location: index.php');
+    exit;
+}
+if (isset($_POST["MtoDep"])) {
+    $_SESSION["pagina"] = "MtoDep"; 
+    header('Location: index.php'); 
+    exit;
+}
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
-if (isset($_REQUEST["salir"])) {
+if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
     unset($_SESSION['DAW209POOusuario']);
+    unset($_SESSION['pagina']);
     //nos dirige al login
-    header("location: index.php");
-} else { //si no estaremos en el inicio
-     
-//asignamos los valores de la sesion del usuario logeado en variables que mostraremos en la vista.
-    $perfil = $_SESSION["perfil"];
-    $descripcion = $_SESSION["descripcion"];
-    $accesos = $_SESSION['accesos'];
-   
-   //if para diferenciar de la pprimera vez que te logeas y la ultima conexion
-   //si te logeas por primera vez no tendras hora de ultima conexion.
-  if($accesos ==1){
-      $accesosT = "Esta es la primera vez que te logeas";
-  }else{
-       $accesosT = "Esta es la ".$accesos."º vez que te logeas";
-        $ultimaConexion = $_SESSION['ultimaconexion'];
-  }
-    $vista = $vistas['inicio']; 
-    /**
-     * requerimosa el layout de la vista
-     */
-    require_once $vistas['layout'];
+    header("location: index.html");
 }
+//si no estaremos en el inicio
+//asignamos los valores de la sesion del usuario logeado en variables que mostraremos en la vista.
+$saludoInicial = "Hola " . $_SESSION["DAW209POOusuario"]->getDescUsuario() . " Bienvenido a la aplicacion LoginLogoffPOO";
+//sacamos el perfil del usuario y damos acceso alas funcionalidades de cada rol.
+$perfil = $_SESSION["DAW209POOusuario"]->getPerfil();
+//if para diferenciar de la pprimera vez que te logeas y la ultima conexion
+//si te logeas por primera vez no tendras hora de ultima conexion.
+if ($_SESSION["DAW209POOusuario"]->getContadorAccesos() == 0) {
+    $accesosT = "Esta es la primera vez que te logeas";
+    $ultimaConexion = "";
+} else {
+    //sumamos uno al contador de accesos de la sesion del usuario
+    $accesosT = "Esta es la " . ($_SESSION["DAW209POOusuario"]->getContadorAccesos() + 1 ) . "º vez que te logeas";
+    //hora de la ultima conexion si es la segunda vez como minimo que accedemos.
+    $ultimaConexion = "La ultima vez que te conectaste fue el " . $_SESSION["DAW209POOusuario"]->getUltimaConexion();
+}
+$vista = $vistas['inicio'];
+$_SESSION["DAW209Pagina"] = "inicio";
+
+require_once $vistas['layout'];
+
+
 

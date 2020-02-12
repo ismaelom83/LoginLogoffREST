@@ -1,15 +1,35 @@
 <?php
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioPDO.php';
 //variable para controlar el formulario
 $entradaOK = true;
 //Array de los errores
 $aErrores = [];
-//si pulsamos el boton salir nos saca de la aplicacion
-if (isset($_POST["salir"])) {
-    header("Location: ../DWES.php");
+
+//si pulsamos cerrar sesion destruye la sesion y nos lleva al inicio.
+if (isset($_POST["cerrarSesion"])) {
+  //destruye la sesion del usuario
+    unset($_SESSION['DAW209POOusuario']);
+    header('Location: index.html'); //nos redirige al login
+    die();//con die() terminamos inmediatamente la ejecución del script, evitando que se envíe más salida al cliente.
 }
-//si pulsamos el votor enviar del formulario nos ejecuta el programa y comprueba si se valida al usuario o no
+//si pulsamos el boton nos lleva  al registro.
+if (isset($_POST["registro"])) {
+    header('Location: index.php'); //Se le redirige al index
+    $_SESSION["pagina"] = "registro"; //Se guarda en la variable de sesión la ventana de registro
+    require_once $vistas["layout"]; //Se carga la vista correspondiente
+    exit;
+}
+
+//si pulsamos el boton enviar del formulario nos ejecuta el programa y comprueba si se valida al usuario o no
 if (isset($_POST["enviar"])) {
     $aErrores["codUsuario"] = validacionFormularios::comprobarAlfaNumerico($_POST["usuario"], 250, 1, 1);
     $aErrores["password"] = validacionFormularios::comprobarAlfaNumerico($_POST["password"], 255, 4, 1);
@@ -26,42 +46,26 @@ if (isset($_POST["enviar"])) {
         $password = hash("SHA256", $codUsuario . $_POST["password"]);
         //alamacenamos en una variable el valor dde la consulta validar usuario
         $obUsuario = UsuarioPDO::validarUsuario($codUsuario, $password);
-        //si existe el usuario nos direcciona al index
+        //si exise a creado el objeto validamos al usuario y nos redirigimos al login.
         if (is_object($obUsuario)) {
-            //asignamos la sesion del usuario a el usuario pasado por el formulario y logeado
-            $_SESSION["DAW209POOusuario"] = $codUsuario;
-            //asignamos los valores de la sesion con los get de la clase usuario
-            $_SESSION["perfil"] = $obUsuario->getPerfil();
-             $_SESSION["descripcion"] = $obUsuario->getDescUsuario();
-             //llamamos a la funcion contador visitas para que nos añada una vistita en la base de datos en el usuario logeado.
-             UsuarioPDO::contadorVisitas($codUsuario);
-             $_SESSION['accesos'] = $obUsuario->getContadorAccesos()+1;
-             //if para determinar que si ha habido mas de una conexion(no es la primera) establecemos una hora de ultima conexion.
-             if($_SESSION['accesos'] >1){
-                 $_SESSION['ultimaconexion'] = $obUsuario->getUltimaConexion();
-             }
-             
-             //y por ultimo nos dirigimos al index.
+            //asignamos la sesion del usuario a el objeto de la clase UsuarioPDO validado
+            $_SESSION["DAW209POOusuario"] = $obUsuario;
+            //guardamos en la sesion que estamos en la pagina de inicio
+            $_SESSION["pagina"] = "inicio";
+            //y por ultimo nos dirigimos al index.
             header("Location: index.php");
+            exit;
         } else {
-            /**
-             * si no  existe el usuario nos direcciona al login
-             */
-            $vista = $vistas["login"];
+            $_SESSION["pagina"] = "login";
             require_once $vistas["layout"];
         }
     } else {
-        /**
-         * si no  existe el usuario nos direcciona al login
-         */
         $vista = $vistas["login"];
         require_once $vistas["layout"];
     }
 } else {
-    /**
-     * si no  existe el usuario nos direcciona al login
-     */
     $vista = $vistas["login"];
+    //metemos en la sesion en la pagina que estamos.
+    $_SESSION["pagina"] = "login";
     require_once $vistas["layout"];
 }
-

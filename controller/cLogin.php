@@ -1,5 +1,12 @@
 <?php
-
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioPDO.php';
 //variable para controlar el formulario

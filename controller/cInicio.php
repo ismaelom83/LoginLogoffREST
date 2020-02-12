@@ -1,5 +1,12 @@
 <?php
-
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 //si pulsamos el boton nos lleva  al registro.
 if (isset($_POST["borrarCuenta"])) {
     $_SESSION["pagina"] = "borrarCuenta"; 

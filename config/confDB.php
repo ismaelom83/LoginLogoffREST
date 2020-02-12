@@ -1,4 +1,12 @@
 <?php
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 define('BASEDATOS', 'DAW209DBproyectoLoginLogoffMulticapaPOO');
 define('PASSWD', 'paso');
 define('USUARIO', 'usuarioDAW209DBLoginPOO');

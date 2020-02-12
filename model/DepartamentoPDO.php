@@ -1,7 +1,18 @@
 <?php
+  /**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @subpackage   Some Subpackage
+     * @category     Some Category
+     * @author       Ismael Heras
+     */
 
 include_once 'DBPDO.php';
 require_once 'Departamento.php';
+
 /**
  * Class DepartamentoPDO
  *
@@ -12,20 +23,26 @@ require_once 'Departamento.php';
  * PHP version 7.3
  *
  * @category ejecucion
- * @package  LoginLogoffMulticapaMVC
+ * @package  proyectoLoginLogoffREST
  * @source Departamento.php
- * @since 1.5
- * @copyright 5-02-2020
+ * @since 1.6
+ * @copyright 12-02-2020
  * @author  Ismael Heras Salvador
  * 
  * 
  */
+
+
+
 class DepartamentoPDO {
 
     /**
+     * buscar
      * 
-     * @param type $codDEpartamento
-     * @return \Departamento
+     * funcion para buscar departamentos
+     * 
+     * @param  $codDEpartamento
+     * @return Departamento
      */
     public static function buscarDepartamentoPorCodigo($codDEpartamento) {
         $consulta = "SELECT * FROM `T02_Departamento` WHERE `T02_Departamento`.`T02_CodDepartamento` = ?;"; //Creacion de la consulta.
@@ -38,9 +55,12 @@ class DepartamentoPDO {
         }   
     }
     /**
+     * buscarpordescriipcion
      * 
-     * @param type $busqueda
-     * @return type
+     * metodo para buscar por descripcion
+     * 
+     * @param  $busqueda
+     * @return  object
      */
     public static function buscarDepartamentosPorDescripcion($busqueda) {
         $consulta = "select * from T02_Departamento where T02_DescDepartamento LIKE ?;";
@@ -50,8 +70,11 @@ class DepartamentoPDO {
     }
 
     /**
+     * buscardepartamento
      * 
-     * @return type
+     * buscar todos los departamentos
+     * 
+     * @return  object
      */
     public static function buscarDepartamento() {
        $consulta = "SELECT * FROM T02_Departamento"; //Creacion de la consulta.
@@ -59,18 +82,24 @@ class DepartamentoPDO {
         return $resConsulta;
     }
     /**
+     * modificar 
      * 
-     * @param type $codDepartamento
-     * @param type $descDepartamento
-     * @param type $vNegocio
+     * modificar departamentos
+     * 
+     * @param  $codDepartamento
+     * @param  $descDepartamento
+     * @param  $vNegocio
      */
     public static function modificaDepartamento($codDepartamento, $descDepartamento, $vNegocio) {
         $consulta = "UPDATE T02_Departamento SET T02_DescDepartamento = ?, T02_VolumenNegocio = ? WHERE T02_CodDepartamento = ?;"; 
         DBPDO::ejecutaConsulta($consulta, [$descDepartamento, $vNegocio, $codDepartamento]); //Ejecutamos la consulta.
     }
     /**
+     * bajafisica
      * 
-     * @param type $codDepartamento
+     * dar de baja fisica
+     * 
+     * @param  $codDepartamento
      */
      public static function bajaFisicaDepartamento($codDepartamento) {
         $consulta = "DELETE FROM T02_Departamento WHERE T02_CodDepartamento = ? ;"; //Creacion de la consulta.
@@ -78,17 +107,25 @@ class DepartamentoPDO {
     }
     /**
      * 
-     * @param type $codDepartamento
-     * @param type $descDepartamento
-     * @param type $vol
+     * alatadepartamento
+     * 
+     * dar de alta un departamento
+     * 
+     * @param  $codDepartamento
+     * @param  $descDepartamento
+     * @param  $vol
+     * 
      */
        public static function altaDepartamento($codDepartamento, $descDepartamento, $vol){
        $consulta = "INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES(?,?,?)";
         DBPDO::ejecutaConsulta($consulta, [$codDepartamento, $descDepartamento, $vol]);
     }
     /**
+     * validarNioExiste
      * 
-     * @param type $codDepartamento
+     * validar un departamento que no exista.
+     * 
+     * @param  $codDepartamento
      * @return boolean
      */
      public static function validaCodNoExiste($codDepartamento){

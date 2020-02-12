@@ -1,5 +1,12 @@
 <?php
-
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
 //Inicializamos un array que se encargara de recoger los errores(Campos vacios)
 $aErrores = [

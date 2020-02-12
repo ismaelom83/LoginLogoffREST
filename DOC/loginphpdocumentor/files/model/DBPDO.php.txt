@@ -1,4 +1,14 @@
+
 <?php
+
+/**
+     * Short Description
+     *
+     * Long Description
+     * 
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 
 /**
  * Class DBPDO
@@ -10,11 +20,11 @@
  * PHP version 7.3
  *
  * @category ejecucion
- * @package  LoginLogoffMulticapaMVC
+ * @package  proyectoLoginLogoffREST
  * @source DBPDO.php
  * @since 1.0
- * @copyright 15-01-2020
- * @author  Ismael Heras Salvador
+ * @copyright 12-02-2020
+ * @author  Ismael Heras Salvador.
  * 
  * 
  */
@@ -22,9 +32,9 @@ class DBPDO {
       /**
        * funcion para ejecutar una o varias consultas  a la base de datos.
        * 
-       * @param type $sentenciaSQL sentencia de tipo sql (insert, delete, update , select). 
-       * @param type $parametros parametros que nos piden para consulta
-       * @return type devuelve un tipo de consulta a la base de datos
+       * @param $sentenciaSQL
+       * @param tparametros
+       * @return type string
        */
     public static function ejecutaConsulta($sentenciaSQL, $parametros){
         try {

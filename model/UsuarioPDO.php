@@ -1,5 +1,13 @@
 <?php
 /**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+/**
  * Class UsuarioPDO
  *
  * Clase que ejecutas las consultas
@@ -10,8 +18,8 @@
  *
  * @package  LoginLogoffMulticapaMVC
  * @source UsuarioPDO.php
- * @since 1.0
- * @copyright 15-01-2020
+ * @since 1.6
+ * @copyright 12-02-2020
  * @author  Ismael Heras Salvador.
  * 
  * 
@@ -24,7 +32,7 @@ class UsuarioPDO {
      * 
      * @param type $codUsuario el codigo del usuario que recivimos en el formulario
      * @param type $password la contraseña del usuario que recivimos por el formulario
-     * @return type devuelve un array con toos los valores de la base de datos del usuario
+     * @return type boolean devuelve un array con toos los valores de la base de datos del usuario
      */
     public static function validarUsuario($codUsuario, $password) {
         //creamos una consulta para saber el codigo del usuario y la contraseña
@@ -44,11 +52,17 @@ class UsuarioPDO {
             return false;
         }  
     }
-    /**
+  /**
+     * Función que valida que no existe el departamento.
      * 
-     * @param type $codUsuario
+     * Función que busca un Departamentos en la base de datos con respecto al código.
+     * 
+     * @function validarCodNoExiste();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $codUsuario Código del departamento a buscar.
      * @return boolean
-     */
+     **/
     
      public static function validarCodNoExiste($codUsuario){
          //consulta SQL para saber el usuario 
@@ -61,13 +75,24 @@ class UsuarioPDO {
          }
         return false;
     }
-/**
- * 
- * @param type $codUsuario
- * @param type $descUsuario
- * @param type $password
- * @return type
- */
+
+    /**
+     * Función para dar de alta un usuario.
+     * 
+     * Función que le pasamos los parametros validos y creamos un nuevo usuario .
+     * 
+     * @function altaUsuario();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $codUsuario Código del departamento a crear.
+     * @param $descUsuario descripcion del departamento a crear.
+     * @param $password Código del departamento a crear.
+     * @param $accesos Código del departamento a crear.
+     * 
+     **/
+    
+    
+    
  public static function altaUsuario($codUsuario, $descUsuario, $password,$accesos){
      //insertamos en la base de datos un nuevo registro con los valores predeterminados.
      
@@ -76,14 +101,34 @@ class UsuarioPDO {
         return self::validarUsuario($codUsuario, $password);
     } 
     
-    /**
+   /**
+     * Función para borrar un usuario.
      * 
-     * @param type $codUsuario
-     */
+     * Función que le pasamos los parametros validos y borramos un  usuario.
+     * 
+     * @function borrarUsuario();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $codUsuario Código del departamento a buscar.
+     *
+     **/
     public static function borrarUsuario($codUsuario){ 
         $consulta = "DELETE FROM T01_Usuarios WHERE T01_CodUsuario LIKE ? ";
         DBPDO::ejecutaConsulta($consulta, [$codUsuario]);
     }
+    
+     /**
+     * Función para modificar un usuario.
+     * 
+     * Función que le pasamos los parametros validos modificamos un usuario .
+     * 
+     * @function altaUsuario();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $descUsuario descripcion del departamento a buscar.
+     * @param $codUsuario Código del departamento a buscar.
+     *@return type object $objetoUsuario
+     **/
     
     public static function modificarUsuario($descUsuario,$codUsuario){
         $consulta = "UPDATE T01_Usuarios SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";

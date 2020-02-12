@@ -1,6 +1,15 @@
 <?php
 
 /**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+
+/**
  * Class validacionFormularios
  *
  * Clase que contiene funciones para validar los campos de los formularios

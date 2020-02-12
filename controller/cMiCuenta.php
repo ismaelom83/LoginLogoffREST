@@ -1,5 +1,12 @@
 <?php
-
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 //requerimos las clases para poder utilizar la base de datos.
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioPDO.php';

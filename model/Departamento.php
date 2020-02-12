@@ -1,29 +1,59 @@
 <?php
+
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+
 /**
  * Class Departamento
  *
  * Clase para definir el objeto departamento
  *
- * Clase que es la unica que tiene acceso a la base de datos y ejecuta las consultas a la misma.
+ * Clase que define os atributos de nuestro departamento.
  * 
  * PHP version 7.3
  *
  * @category ejecucion
- * @package  LoginLogoffMulticapaMVC
+ * @package  proyectoLoginLogoffREST
  * @source Departamento.php
- * @since 1.5
- * @copyright 5-02-2020
+ * @since 1.6
+ * @copyright 12-02-2020
  * @author  Ismael Heras Salvador
  * 
  * 
  */
 class Departamento {
 
+    /**
+     *
+     * @var  type codDepartamento
+     * 
+     */
     private $codDepartamento;
     private $descDepartamento;
     private $volumenDeNegocio;
     private $fechaBajaDepartamento;
 
+    /**
+     * constructor 
+     * 
+     *  constructor pasra la clase Departamento
+     * 
+     * @function __construct();
+     * @author Ismael Heras Salvador.
+     * @version 1.6.
+     * @since 12-02-2020
+     * @param $codDepartamento
+     * @param $descDepartamento
+     * @param $volumenDeNegocio
+     * @param $fechaBajaDepartamento
+     * 
+     * */
     function __construct($codDepartamento, $descDepartamento, $volumenDeNegocio, $fechaBajaDepartamento) {
         $this->codDepartamento = $codDepartamento;
         $this->descDepartamento = $descDepartamento;
@@ -31,40 +61,94 @@ class Departamento {
         $this->fechaBajaDepartamento = $fechaBajaDepartamento;
     }
 
+    /**
+     * get
+     * 
+     * get de codDepartamento
+     * 
+     * @return type string
+     */
     function getCodDepartamento() {
         return $this->codDepartamento;
     }
 
+    /**
+     * 
+     * get
+     * 
+     * get de DescDepartamento
+     * 
+     * @return type string
+     */
     function getDescDepartamento() {
         return $this->descDepartamento;
     }
 
+    /**
+     * 
+     * get
+     * 
+     * get de volumenNegocio
+     * 
+     * @return type string
+     */
     function getVolumenDeNegocio() {
         return $this->volumenDeNegocio;
     }
 
+    /**
+     * get
+     * 
+     * get de fechaBaja
+     * 
+     * @return type string
+     */
     function getFechaBajaDepartamento() {
         return $this->fechaBajaDepartamento;
     }
 
+    /**
+     * set
+     * 
+     * set de codDepartamento
+     * 
+     * @param  string
+     */
     function setCodDepartamento($codDepartamento) {
         $this->codDepartamento = $codDepartamento;
     }
 
+    /**
+     * set
+     * 
+     * set descDepartamento
+     * 
+     * @param string
+     */
     function setDescDepartamento($descDepartamento) {
         $this->descDepartamento = $descDepartamento;
     }
 
+    /**
+     * set 
+     * 
+     * set de volumenNegocio
+     * 
+     * @param  float
+     */
     function setVolumenDeNegocio($volumenDeNegocio) {
         $this->volumenDeNegocio = $volumenDeNegocio;
     }
 
+    /**
+     * set 
+     * 
+     * set de fechaBaja
+     * 
+     * @param  data
+     */
     function setFechaBajaDepartamento($fechaBajaDepartamento) {
         $this->fechaBajaDepartamento = $fechaBajaDepartamento;
-    }
-
-    public function __toString() {
-        return $this->$codDepartamento;
     }
 
 }

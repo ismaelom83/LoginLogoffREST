@@ -1,4 +1,12 @@
 <?php
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
     unset($_SESSION['DAW209POOusuario']);

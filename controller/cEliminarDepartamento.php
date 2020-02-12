@@ -1,5 +1,12 @@
 <?php
-
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login

@@ -1,7 +1,45 @@
 <?php
 
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 include_once 'Geolocation.php';
+/**
+ * Class REST
+ *
+ * Clase que ejecutas las APIs
+ *
+ * Clase que ejecuta todas las APIS consumidas.
+ * 
+ * PHP version 7.3
+ *
+ * @package  proyectoLoginLogoffREST
+ * @source REST.php
+ * @since 1.6
+ * @copyright 12-02-2020
+ * @author  Ismael Heras Salvador.
+ * 
+ * 
+ */
+
 class Rest{
+    
+    /**
+     * Función para apai de cordenadas.
+     * 
+     * Función que le paasas una poblacion y te entrega unas cordenadas.
+     * 
+     * @function cordenadas();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $poblacion poblacion a buscar.
+     * @return object $coordenadas
+     **/
     
     public static function cordenadas($poblacion) {
         //sustituimos los espacios por el simbolo de %20 para que el navegador lo reconozca.
@@ -19,6 +57,18 @@ class Rest{
         
         return $coordenadas;
     }
+    
+     /**
+     * Función para apai de mapa estatico.
+     * 
+     * Función que le paasas una poblacion y te entrega un mapa estatico.
+     * 
+     * @function mapaEstatico();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $poblacion poblacion a buscar.
+     * @return object $urlPosicionMapa
+     **/
     
     public static function mapaEstatico($poblacion) {
         

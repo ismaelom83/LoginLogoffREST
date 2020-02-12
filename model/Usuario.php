@@ -1,5 +1,14 @@
 <?php
 /**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+
+/**
  * Class Usuario
  *
  * Clase para definir un objeto de la clase usuario
@@ -12,8 +21,8 @@
  * @category instanciacion
  * @package  LoginLogoffMulticapaMVC
  * @source Usuario.php
- * @since 1.0
- * @copyright 15-01-2020
+ * @since 1.6
+ * @copyright 12-02-2020
  * @author  Ismael Heras Salvador
  * 
  * 
@@ -21,12 +30,7 @@
 class Usuario{
     /**
      *
-     * @var type string 
-     *  @var type string 
-     *  @var type integer
-     *  @var type string 
-     *  @var type integer
-     * access private
+     * @var type string
      */
     private $codUsuario;
     private $descUsuario;
@@ -36,15 +40,22 @@ class Usuario{
     private $contadorAccesos;
     
     /**
-
      * 
-     * @param type $codUsuario el codigo del usuario 
-     * @param type $descUsuario la descripcion del usuario
-     * @param type $password la contraseña pdel usuario
-     * @param type $perfil el perfil del usuario puede ser(usuario o administrador)
-     * @param type $ultimaConexion nos indica la fecha de la ultima conexion
-     * @param type $contadorAccesos  nos devuelve el numero de veces que se ha conectado a la base de datos    /
-     */
+     * constructor 
+     * 
+     * constructor usuario
+     * 
+     * @function __construct();
+     * @author Ismael Heras Salvador.
+     * @version 1.6.
+     * @since 12-02-2020
+     * @param $codUsuario
+     * @param $descUsuario
+     * @param $password
+     * @param $perfil
+     * @param $ultimaConexion
+     * @param $contadorAccesos
+     **/
     
     function __construct($codUsuario, $descUsuario, $password, $perfil, $ultimaConexion, $contadorAccesos) {
         $this->codUsuario = $codUsuario;
@@ -56,6 +67,7 @@ class Usuario{
     }
     
     /**
+     * get
      * Getter para mostrar el atributo
      * 
      * @return type/ el codigo del usuario
@@ -66,43 +78,52 @@ class Usuario{
     }
 
     /**
+     * get
+     * 
      * Getter para mostrar el atributo
      * 
-     * @return type/ descripcion del usuario
+     * @return type string
      */
     function getDescUsuario() {
         return $this->descUsuario;
     }
 /**
+ * get
+ * 
  * Getter para mostrar el atributo
  * 
- * @return type/ password del usuario
+ * @return type string
  */
     function getPassword() {
         return $this->password;
     }
-/**
+/** 
+ * get
+ * 
  * Getter para mostrar el atributo
  *  
- * @return type / perfil del usuario
+ * @return type string 
  */
     function getPerfil() {
         return $this->perfil;
     }
 
     /**
+     * get
+     * 
      * Getter para mostrar el atributo
      * 
-     * @return type la ultima conexion del usuario
+     * @return type data 
      */
     function getUltimaConexion() {
         return $this->ultimaConexion;
     }
     /**
+     * get
      * 
      * Getter para mostrar el atributo
      * 
-     * @return type el numero de veces que ha accedido a la base de datos
+     * @return type int 
      */
 
     function getContadorAccesos() {
@@ -110,36 +131,44 @@ class Usuario{
     }
 
     /**
+     * set
+     * 
      * Setter para modificar el atributo
      * 
-     * @param type $codUsuario el codigo del usuario
+     * @param type string  
      */
     function setCodUsuario($codUsuario) {
         $this->codUsuario = $codUsuario;
     }
 
     /**
+     * set
+     * 
      * Setter para modificar el atributo
      * 
-     * @param type $descUsuario sescripcion del usuario
+     * @param type string
      */
     function setDescUsuario($descUsuario) {
         $this->descUsuario = $descUsuario;
     }
 
     /**
+     * set
+     * 
      * Setter para modificar el atributo
      * 
-     * @param type $password password del usuario
+     * @param type string 
      */
     function setPassword($password) {
         $this->password = $password;
     }
 
     /**
+     * set
+     * 
      * Setter para modificar el atributo
      * 
-     * @param type $perfil perfil del usuario
+     * @param type string 
      */ 
     function setPerfil($perfil) {
         $this->perfil = $perfil;
@@ -147,15 +176,17 @@ class Usuario{
 /**
  * Setter para modificar el atributo
  * 
- * @param type $ultimaConexion ultima conexion a la base de datos
+ * @param type data 
  */
     function setUltimaConexion($ultimaConexion) {
         $this->ultimaConexion = $ultimaConexion;
     }
 /**
+ * set
+ * 
  * Setter para modificar el atributo
  * 
- * @param type $contadorAccesos cuenta los accesos a la base de datos
+ * @param type int 
  */
     function setContadorAccesos($contadorAccesos) {
         $this->contadorAccesos = $contadorAccesos;

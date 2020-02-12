@@ -1,14 +1,28 @@
-
-
-<p> <?php echo $descripcion ?> Bienvenido a la aplicacion LOginLogoffMulticapaPOO</p>
-<p>Tu perfil es (<?php echo $perfil?>)</p>
-<p><?php echo $accesosT?></p>
-<p>Tu ultima conexion fue el <?php echo $ultimaConexion?></p>
-<br>
-
-<form action="<?php echo $_SERVER["PHP_SELF"]; ?>?pagina=inicio" method="post">
-    <input type="submit" class="btn btn-danger" value="Cerrar Sesion" name="salir">
-</form>
-
+<div class="inicio1">
+    <p> <?php echo $saludoInicial ?></p>
+    <p><?php echo "Tu perfil es ".$perfil ?></p>
+    <p><?php echo $accesosT ?></p>
+    <p><?php echo $ultimaConexion ?></p>
+    <br>
+ <?php if ($perfil == "usuario") { ?>
+       <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+           <input type="submit" class="btn btn-secondary" value="EditarPerfil" name="editarPerfil">
+           <br><br>
+            <input type="submit" class="btn btn-secondary" value="BorrarCuenta" name="borrarCuenta">
+            <br><br>
+            <input type="submit" class="btn btn-secondary" value="Ir a Servicio REST" name="rest">
+             <br><br>
+             <input type="submit" class="btn btn-secondary" value="MtoDepartamentos" name="MtoDep">
+             <br><br>
+        </form>
+    <?php } ?> 
+     <?php if ($perfil == "administrador") { ?>
+       <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+           <input type="submit" class="btn btn-secondary" value="MantenimientoUsuarios" name="editarMiUsuario">
+            <br><br>
+            <input type="submit" class="btn btn-secondary" value="Ir a Servicio REST" name="rest">
+        </form>
+    <?php } ?> 
+</div>
 
 

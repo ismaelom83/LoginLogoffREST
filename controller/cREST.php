@@ -1,4 +1,12 @@
 <?php
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
@@ -56,7 +64,6 @@ if (isset($_GET["solicitarRestMapa"])){
     if ($entradaOK) {
         //guardamo en una variable la direccion del formulario para saber la direcion del mapa estatico.
         $direccionMapaEstatico = $_GET["direccionMapaEstatico"];
-
     //requerimos la clase rest para que nos de el metodo mapaaestatico y conseguir la url con las cordenadas de la localidad y nos lo muestre la vista
     //el metodo nos pide la direcion que introducimos en el input.
    $urlMapaEtatico = Rest::mapaEstatico($direccionMapaEstatico);      

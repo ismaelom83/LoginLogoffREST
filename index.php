@@ -1,5 +1,13 @@
 <?php
 /**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+/**
  * requerimos los ficheros de configuarion
  */
 require_once './config/confAplicacion.php';
