@@ -5,7 +5,7 @@
      * Long Description
      *
      * @package      proyectoLoginLogoffREST
-     * @author       Ismael Heras
+     * @author       Ismael Hera
      */
 define('BASEDATOS', 'DAW209DBproyectoLoginLogoffMulticapaPOO');
 define('PASSWD', 'paso');
