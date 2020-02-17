@@ -27,9 +27,21 @@ body{
     margin-bottom: 30px;
     margin-left: 20px;
     border: 1px solid black;
-    float: right;
+    float: left;
 }
 .wrapRest2 input{
+    width: 200px;
+}
+
+.wrapRest83{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    border: 1px solid black;
+    float: right;
+}
+.wrapRest83 input{
     width: 200px;
 }
 
@@ -65,15 +77,39 @@ ul li{
     text-align: center;
 }
 
-@media all and (max-width:980px){
+@media all and (max-width:1008px){
     .wrapRest2{
         padding: 10px;
-        margin-left: -20px;
+        margin-left: 20px;
         margin-top: 10px;
         border: 1px solid black;
         float: left;
     }
     .wrapRest2 input{
+        width: 200px;
+    }
+     .wrapRest83{
+        padding: 10px;
+        margin-left: 20px;
+        margin-top: 10px;
+        border: 1px solid black;
+        float: left;
+    }
+    .wrapRest83 input{
+        width: 200px;
+    }
+
+}
+@media all and (max-width:1507px){
+
+     .wrapRest83{
+        padding: 10px;
+        margin-left: 20px;
+        margin-top: 10px;
+        border: 1px solid black;
+        float: left;
+    }
+    .wrapRest83 input{
         width: 200px;
     }
 

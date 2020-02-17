@@ -77,4 +77,38 @@
     </div>
 </div>
 
+<div class="wrapRest83">
+    <a href="DOC/apirestpropia.pdf" target="_blank">Como Funciona Mi API</a>
+    <p>API propia para que pasa el volumen de negocio<br>por URL introduciendo un codigo</p>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+        <fieldset>
+            <label for="">Departamento</label><br>
+            <input type="text" name="departamentoAPI" placeholder="Introduce Departamento" value="<?php
+            if (isset($_GET["solicitarResPropia"]) && !$entradaOK == null) {
+                echo $_SESSION['MYAPIPROPIA'];
+            }
+            ?>">
+                   <?php if ($aErrores['solicitarAPIPropia'] != NULL) { ?>
+                <div class="error">
+                    <?php echo $aErrores['solicitarAPIPropia']; //Mensaje de error que tiene el array aErrores?>
+                </div>   
+            <?php } ?>  
+            <br><br>
+            <div class="botonesRest">
+                <input type="submit" name="solicitarResPropia" value="Solicitar servicio REST Propio"  class="form-control  btn btn-secondary mb-1">  
+                <br><br>
+<!--                <input type="submit" name="cancelaRest" value="Cancelar" class="form-control  btn btn-secondary mb-1">  -->
+            </div>
+        </fieldset>
+    </form>
+       <div class="cordenadas">
+        <h2>VolumenNegocio</h2>
+        <label for="myAPI">VolumenNegocio</label>
+        <input type="text"  id="myAPI" placeholder="VolumenNegocio" disabled  value="<?php
+        if (isset($_GET["solicitarResPropia"]) && !$entradaOK == null) {
+            echo $_SESSION['volumenFinal'];
+        }
+        ?>">
+    </div>
+</div>
 

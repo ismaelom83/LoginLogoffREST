@@ -70,6 +70,30 @@ if (isset($_GET["solicitarRestMapa"])){
     }
 }
 
+//my api
+if (isset($_GET['solicitarResPropia'])) { //Si se ha pulsado enviar
+    //La posición del array de errores recibe el mensaje de error si hubiera
+    $aErrores['solicitarAPIPropia'] = validacionFormularios::comprobarAlfabetico($_GET['departamentoAPI'],3,3,1); //max, min y obligatoriedad
+    
+    foreach ($aErrores as $key => $value) {
+        if ($value != NULL) {
+            $entradaOK = false;
+            $_SESSION['volumenFinal'] = "";
+        }
+    }
+    if ($entradaOK) {   
+        $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];   
+        $volumenPropio = REST::myApiREST($_SESSION['MYAPIPROPIA']);
+        $_SESSION['volumenFinal'] = $volumenPropio;
+        if (is_null($volumenPropio)) { 
+            $aErrores['solicitarAPIPropia'] = "Ese departamento no existe.";
+             $_SESSION['volumenFinal'] = "";
+        }else{
+            $_SESSION['volumenFinal'] = $volumenPropio;
+        }
+    }
+}
+
 //mostramos las vistas del rest
 $vista = $vistas["rest"];
 //metemos en la sesion en la pagina que estamos.

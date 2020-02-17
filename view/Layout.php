@@ -10,7 +10,6 @@
         <script src="WEBBROOT/js/storage.js"></script>
         <title>Document</title>
     </head>
-
     <body>
         <nav>
             <?php if (!isset($_SESSION['DAW209POOusuario'])) { ?>
