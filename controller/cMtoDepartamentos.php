@@ -45,12 +45,9 @@ if (isset($_POST['enviarDepartamentos'])) {//si esta definida la variable i no e
 }
 if ($descDepart != null) {
     $obDepartamento = DepartamentoPDO::buscarDepartamentosPorDescripcion("%".$descDepart."%");
-} else {
-    
+} else {  
     $obDepartamento = DepartamentoPDO::buscarDepartamento();
-//    $_SESSION['DAW209POODepartamento'] = $obDepartamento;
 }
-
 //mostramos las vistas del rest
 $vista = $vistas["departamentos"];
 //metemos en la sesion en la pagina que estamos.

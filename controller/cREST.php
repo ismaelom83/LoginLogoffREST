@@ -1,14 +1,5 @@
 <?php
-/**
-     * Short Description
-     *
-     * Long Description
-     *
-     * @package      proyectoLoginLogoffREST
-     * @author       Ismael Heras
-     */
-//si pulsamos salir nos saca del incio y nos lleva de nuevo al login
-if (isset($_REQUEST["cerrarSesion"])) {
+if (isset($_REQUEST["cerrarSesion"])) {//si pulsamos salir nos saca del incio y nos lleva de nuevo al login
     //destruye la sesion del usuario
     unset($_SESSION['DAW209POOusuario']);
     unset($_SESSION['pagina']);
@@ -24,14 +15,12 @@ if (isset($_POST["volverInicio"])) {
 require_once 'model/REST.php';
 require_once 'model/DepartamentoPDO.php';
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
-//Inicializamos un array que se encargara de recoger los errores(Campos vacios)
-$aErrores = [
+$aErrores = [//Inicializamos un array que se encargara de recoger los errores(Campos vacios)
     'direccion' => null,
     'direccionMapaEstatico' => null,
     'solicitarAPIPropia' => null
 ];
-//si hemos pulsado el boton de solocuitar del formularioo entramos.
-if (isset($_GET["solicitarRest"]) ) {
+if (isset($_GET["solicitarRest"]) ) {//si hemos pulsado el boton de solocuitar del formularioo entramos.
     $aErrores['direccion'] = validacionFormularios::comprobarAlfabetico($_GET['direccion'], 64, 2, 1); //maximo, mínimo y opcionalidad
 
     //Autenticación con la base de datos
@@ -48,11 +37,9 @@ if (isset($_GET["solicitarRest"]) ) {
         //guardamos en variables la longitusd y la latitud para darselas a lña vista y quer las muestre.
      $longitud = $coordenadas->getLongitud();
     $latitud = $coordenadas->getLatitud();
- 
     }
 }
-//si hemos pulsado el boton de solocuitar del formularioo entramos.
-if (isset($_GET["solicitarRestMapa"])){
+if (isset($_GET["solicitarRestMapa"])){//si hemos pulsado el boton de solocuitar del formularioo entramos.
 
     $aErrores['direccionMapaEstatico'] = validacionFormularios::comprobarAlfabetico($_GET['direccionMapaEstatico'], 64, 2, 1); //maximo, mínimo y opcionalidad
     //Autenticación con la base de datos
@@ -69,12 +56,9 @@ if (isset($_GET["solicitarRestMapa"])){
    $urlMapaEtatico = Rest::mapaEstatico($direccionMapaEstatico);      
     }
 }
-
-//my api
-if (isset($_GET['solicitarResPropia'])) { //Si se ha pulsado enviar
+if (isset($_GET['solicitarResPropia'])) { //my prpopia api rest
     //La posición del array de errores recibe el mensaje de error si hubiera
     $aErrores['solicitarAPIPropia'] = validacionFormularios::comprobarAlfabetico($_GET['departamentoAPI'],3,3,1); //max, min y obligatoriedad
-    
     foreach ($aErrores as $key => $value) {
         if ($value != NULL) {
             $entradaOK = false;
@@ -93,9 +77,7 @@ if (isset($_GET['solicitarResPropia'])) { //Si se ha pulsado enviar
         }
     }
 }
-
-//mostramos las vistas del rest
-$vista = $vistas["rest"];
+$vista = $vistas["rest"];//mostramos las vistas del rest
 //metemos en la sesion en la pagina que estamos.
 $_SESSION["pagina"] = "rest";
 require_once $vistas["layout"];

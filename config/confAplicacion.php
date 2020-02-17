@@ -28,6 +28,7 @@ $controladores = [
     'altaDep' => 'controller/cAltaDepartamento.php',
     'mUsuarios' => 'controller/cMtoUsuarios.php',
     'eliminarUsuario' => 'controller/cEliminarUsuario.php',
+    'modificarUsuario' => 'controller/cConsultarModificarUsuario.php',
     
 ];
 
@@ -45,4 +46,5 @@ $vistas = [
     'altaDep' => 'view/vAltaDepartamento.php',
     'mUsuarios' => 'view/vMtoUsuarios.php',
     'eliminarUsuario' => 'view/vEliminaraUsuario.php',
+    'modificarUsuario' => 'view/vConsultarModificarUsuario.php',
 ];

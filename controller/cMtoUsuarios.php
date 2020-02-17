@@ -17,19 +17,20 @@ if (isset($_REQUEST["cerrarSesion"])) {
     header("location: index.html");
 }
 if (isset($_POST["volverInicio"])) {
+    $_SESSION['DAW209POOusuario'];
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
       header('Location: index.php'); //Se le redirige al index
     exit;
 }
 if (isset($_GET['codigoBorrarUsuarios'])) {;
-    $_SESSION['DAW209POOusuario'] = $_GET['codigoBorrarUsuarios'];
+    $_SESSION['usuarioAdmin'] = $_GET['codigoBorrarUsuarios'];
     $_SESSION["pagina"] = "eliminarUsuario";
     header('Location: index.php'); //Se le redirige al index
     exit;
 }
 if (isset($_GET['codigoModificarUsuarios'])) {
-    $_SESSION['DAW209POODepartamento'] = $_GET['codigoModificar'];
-    $_SESSION["pagina"] = "modDep";
+    $_SESSION['usuarioAdmin'] = $_GET['codigoModificarUsuarios'];
+    $_SESSION["pagina"] = "modificarUsuario";
     header('Location: index.php'); //Se le redirige al index
     exit;
 }

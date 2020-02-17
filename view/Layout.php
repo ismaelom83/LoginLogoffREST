@@ -21,10 +21,6 @@
         </nav>
         <main>
             <section class="banner">
-<!--                <div class="banner-content">
-                    <h1>bienvenidos</h1>
-                    <a href="#">Ve Mas</a>
-                </div>-->
             </section>
             <?php require_once $vista; ?> 
         </main>
@@ -52,6 +48,7 @@
                 <a href="DOC/loginphpdocumentor/index.html" target="_blank" ><img  src="WEBBROOT/img/documentor.png" alt="PHP"></a>
                 <a href="https://www.zara.com/es/" target="_blank">pagina Imitada</a>
                 <a href="DOC/200204-tema2.pdf" target="_blank">Tecnologias y herramientas</a>
+                <a href="DOC/CV-Europass-20200217-HerasSalvador-ES.pdf" target="_blank">Curriculum</a>
             </div>
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

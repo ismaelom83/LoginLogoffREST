@@ -31,6 +31,7 @@ if (isset($_POST["MtoDep"])) {
     exit;
 }
 if (isset($_POST["mantenimientoUsuarios"])) {
+    $_SESSION['usuarioAdmin'];
     $_SESSION["pagina"] = "mUsuarios"; 
     header('Location: index.php'); 
     exit;
@@ -59,9 +60,9 @@ if ($_SESSION["DAW209POOusuario"]->getContadorAccesos() == 0) {
     //hora de la ultima conexion si es la segunda vez como minimo que accedemos.
     $ultimaConexion = "La ultima vez que te conectaste fue el " . $_SESSION["DAW209POOusuario"]->getUltimaConexion();
 }
+
 $vista = $vistas['inicio'];
 $_SESSION["DAW209Pagina"] = "inicio";
-
 require_once $vistas['layout'];
 
 

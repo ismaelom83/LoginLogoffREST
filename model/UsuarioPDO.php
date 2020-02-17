@@ -130,11 +130,10 @@ class UsuarioPDO {
      *@return type object $objetoUsuario
      **/
     
-    public static function modificarUsuario($descUsuario,$codUsuario){
+    public static function modificarCuenta($descUsuario,$codUsuario){
         $consulta = "UPDATE T01_Usuarios SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
         DBPDO::ejecutaConsulta($consulta, [$descUsuario, $codUsuario]);   
         $objetoUsuario = new Usuario($codUsuario,$descUsuario,$_SESSION['DAW209POOusuario']->getPassword(), $_SESSION['DAW209POOusuario']->getPerfil(), $_SESSION['DAW209POOusuario']->getUltimaConexion(),$_SESSION['DAW209POOusuario']->getContadorAccesos());
-
         return $objetoUsuario;
     }
     
@@ -169,6 +168,11 @@ class UsuarioPDO {
         return $resConsulta;
     }
     
+      public static function modificarUsuario($descUsuario,$codUsuario){
+        $consulta = "UPDATE T01_Usuarios SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
+        DBPDO::ejecutaConsulta($consulta, [$descUsuario, $codUsuario]);   
+      }
+    
        /**
      * Función que busca un Usuario.
      * 
@@ -187,6 +191,7 @@ class UsuarioPDO {
         $objetoUsuario = new Usuario($usuario->T01_CodUsuario,$usuario->T01_DescUsuario,$usuario->T01_Password,$usuario->T01_Perfil,$usuario->T01_FechaHoraUltimaConexion,$usuario->T01_NumAccesos);
         return $objetoUsuario;
     }
+    
 
 }
 

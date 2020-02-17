@@ -1,21 +1,10 @@
 <?php
-/**
-     * Short Description
-     *
-     * Long Description
-     *
-     * @package      proyectoLoginLogoffREST
-     * @author       Ismael Heras
-     */
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioPDO.php';
 //variable para controlar el formulario
 $entradaOK = true;
-//Array de los errores
-$aErrores = [];
-
-//si pulsamos cerrar sesion destruye la sesion y nos lleva al inicio.
-if (isset($_POST["cerrarSesion"])) {
+$aErrores = [];//Array de los errores
+if (isset($_POST["cerrarSesion"])) {//si pulsamos cerrar sesion destruye la sesion y nos lleva al inicio.
   //destruye la sesion del usuario
     unset($_SESSION['DAW209POOusuario']);
     header('Location: index.html'); //nos redirige al login
@@ -28,7 +17,6 @@ if (isset($_POST["registro"])) {
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
-
 //si pulsamos el boton enviar del formulario nos ejecuta el programa y comprueba si se valida al usuario o no
 if (isset($_POST["enviar"])) {
     $aErrores["codUsuario"] = validacionFormularios::comprobarAlfaNumerico($_POST["usuario"], 250, 1, 1);
@@ -55,14 +43,8 @@ if (isset($_POST["enviar"])) {
             //y por ultimo nos dirigimos al index.
             header("Location: index.php");
             exit;
-        } else {
-            $_SESSION["pagina"] = "login";
-            require_once $vistas["layout"];
-        }
-    } else {
-        $vista = $vistas["login"];
-        require_once $vistas["layout"];
-    }
+        } 
+    } 
 } else {
     $vista = $vistas["login"];
     //metemos en la sesion en la pagina que estamos.

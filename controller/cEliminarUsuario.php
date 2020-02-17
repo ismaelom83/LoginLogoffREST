@@ -31,8 +31,8 @@ if (isset($_POST["volverInicio"])) {
     exit;
 }
 
-if(isset($_SESSION['DAW209POOusuario'])){
-     $codUsuario = $_SESSION['DAW209POOusuario'];
+if(isset($_SESSION['usuarioAdmin'])){
+     $codUsuario = $_SESSION['usuarioAdmin'];
      $objetoUsuario = UsuarioPDO::buscarUsuarioPorCodigo($codUsuario);
 }
 

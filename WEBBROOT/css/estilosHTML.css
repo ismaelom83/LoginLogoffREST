@@ -132,6 +132,7 @@ aside{
     width: 10%;
     float: right;
     height: 80vh;
+    
 }
 
 
@@ -142,6 +143,7 @@ footer{
     position: relative;
     /*    z-index: 20;*/
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .footer-img{
