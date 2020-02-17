@@ -1,4 +1,5 @@
 <?php
+
 /**
      * Short Description
      *
@@ -20,13 +21,13 @@ if (isset($_POST["volverInicio"])) {
       header('Location: index.php'); //Se le redirige al index
     exit;
 }
-if (isset($_GET['codigoBorrar'])) {;
-    $_SESSION['DAW209POODepartamento'] = $_GET['codigoBorrar'];
-    $_SESSION["pagina"] = "borrarDep";
+if (isset($_GET['codigoBorrarUsuarios'])) {;
+    $_SESSION['DAW209POOusuario'] = $_GET['codigoBorrarUsuarios'];
+    $_SESSION["pagina"] = "eliminarUsuario";
     header('Location: index.php'); //Se le redirige al index
     exit;
 }
-if (isset($_GET['codigoModificar'])) {
+if (isset($_GET['codigoModificarUsuarios'])) {
     $_SESSION['DAW209POODepartamento'] = $_GET['codigoModificar'];
     $_SESSION["pagina"] = "modDep";
     header('Location: index.php'); //Se le redirige al index
@@ -37,23 +38,22 @@ if (isset($_POST['altaDep'])) {;
     header('Location: index.php'); //Se le redirige al index
     exit;
 }
-require_once 'model/Departamento.php';
-require_once 'model/DepartamentoPDO.php';
-$descDepart = null;
-if (isset($_POST['enviarDepartamentos'])) {//si esta definida la variable i no es null decimos que nuestro array es igual al valor que recogemos en el campo buscar 
-    $descDepart = $_POST['DescDepartamentos'];
+require_once 'model/Usuario.php';
+require_once 'model/UsuarioPDO.php';
+$descUsuarios = null;
+if (isset($_POST['enviarUsuarios'])) {//si esta definida la variable i no es null decimos que nuestro array es igual al valor que recogemos en el campo buscar 
+    $descUsuarios = $_POST['DescUsuarios'];
 }
-if ($descDepart != null) {
-    $obDepartamento = DepartamentoPDO::buscarDepartamentosPorDescripcion("%".$descDepart."%");
+if ($descUsuarios != null) {
+    $obUsuario = UsuarioPDO::buscarUsuariosPorDescripcion("%".$descUsuarios."%");
 } else {
     
-    $obDepartamento = DepartamentoPDO::buscarDepartamento();
+    $obUsuario = UsuarioPDO::buscarUsuarios();
 //    $_SESSION['DAW209POODepartamento'] = $obDepartamento;
 }
 
 //mostramos las vistas del rest
-$vista = $vistas["departamentos"];
+$vista = $vistas["mUsuarios"];
 //metemos en la sesion en la pagina que estamos.
-$_SESSION["pagina"] = "MtoDep";
+$_SESSION["pagina"] = "mUsuarios";
 require_once $vistas["layout"];
-

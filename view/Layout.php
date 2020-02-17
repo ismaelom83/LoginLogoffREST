@@ -32,7 +32,7 @@
             <form class="form3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <input type="submit"  value="CerrarSesion/Salir" name="cerrarSesion" id="cerrarSesion1">
             </form>
-              <?php if ($_SESSION["pagina"] == "rest" || $_SESSION["pagina"] == "MtoDep") { ?>
+              <?php if ($_SESSION["pagina"] == "rest" || $_SESSION["pagina"] == "MtoDep" || $_SESSION["pagina"] == "mUsuarios")  { ?>
                <form class="form3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                  <input type="submit" name="volverInicio" value="VolverInicio" class="form-control  btn btn-secondary mb-1"> 
             </form>

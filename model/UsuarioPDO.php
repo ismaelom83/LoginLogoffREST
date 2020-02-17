@@ -137,7 +137,56 @@ class UsuarioPDO {
 
         return $objetoUsuario;
     }
-  
+    
+    /**
+     * Función para buscar todos los usuarios.
+     * 
+     * Función que le pasamos los parametros validos modificamos un usuariopara buscar todos los usuarios.
+     * @function buscarUsuariosPorDescripcion();
+     * @author Ismael Heras Salvador.
+     * @version 1.6 
+     * @param $descUsuario descripcion del departamento a buscar.
+     * @param $codUsuario Código del departamento a buscar.
+     *@return type object $resultadoConsulta
+     **/
+  public static function buscarUsuariosPorDescripcion($busqueda) {
+        $consulta = "select * from T01_Usuarios where T01_DescUsuario LIKE ?;";
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
+         
+        return $resultadoConsulta;
+    }
+    
+    /**
+     * buscarusuario
+     * 
+     * buscar todos los usuarios
+     * 
+     * @return  object
+     */
+    public static function buscarUsuarios() {
+       $consulta = "SELECT * FROM T01_Usuarios"; //Creacion de la consulta.
+        $resConsulta = DBPDO::ejecutaConsulta($consulta, []); //Ejecutamos la consulta.
+        return $resConsulta;
+    }
+    
+       /**
+     * Función que busca un Usuario.
+     * 
+     * Función que busca un Usuario en concreto a partir de su código.
+     * 
+     * @function buscarUsuarioPorCodigo();
+     * @author Ismael Heras Salvador
+     * @version 1.6
+     * @param $codUsuario Código del Usuario que se está buscando.
+     * @return $objetoUsuario
+     **/
+    public static function buscarUsuarioPorCodigo($codUsuario) {
+        $consulta = "select * from T01_Usuarios where T01_CodUsuario = ?;";
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consulta, [$codUsuario]);
+        $usuario = $resultadoConsulta->fetchObject();
+        $objetoUsuario = new Usuario($usuario->T01_CodUsuario,$usuario->T01_DescUsuario,$usuario->T01_Password,$usuario->T01_Perfil,$usuario->T01_FechaHoraUltimaConexion,$usuario->T01_NumAccesos);
+        return $objetoUsuario;
+    }
 
 }
 

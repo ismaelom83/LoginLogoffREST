@@ -30,6 +30,11 @@ if (isset($_POST["MtoDep"])) {
     header('Location: index.php'); 
     exit;
 }
+if (isset($_POST["mantenimientoUsuarios"])) {
+    $_SESSION["pagina"] = "mUsuarios"; 
+    header('Location: index.php'); 
+    exit;
+}
 //si pulsamos salir nos saca del incio y nos lleva de nuevo al login
 if (isset($_REQUEST["cerrarSesion"])) {
     //destruye la sesion del usuario
