@@ -5,11 +5,7 @@
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset>
             <label for="">Poblacion</label><br>
-            <input type="text" name="direccion" placeholder="Introduce Ciudad" value="<?php
-            if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-                echo $_SESSION["poblacion"];
-            }
-            ?>">
+            <input type="text" name="direccion" placeholder="Introduce Ciudad" value="<?php echo $_SESSION["poblacion"];?>">
                    <?php if ($aErrores['direccion'] != NULL) { ?>
                 <div class="error">
                     <?php echo $aErrores['direccion']; //Mensaje de error que tiene el array aErrores ?>
@@ -27,31 +23,19 @@
         <h2>Cordenadas</h2>
 
         <label for="latitud">Latitud</label>
-        <input type="text"  id="latitud" placeholder="latitud" disabled  value="<?php
-        if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-            echo $_SESSION["latitud"];
-        }
-        ?>">
+        <input type="text"  id="latitud" placeholder="latitud" disabled  value="<?php echo $_SESSION["latitud"];?>">
         <br>
         <label for="longitud">Longitud</label>
-        <input type="text"  id="latitud" placeholder="longitud" disabled  value="<?php
-        if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-            echo $_SESSION["longitud"];
-        }
-        ?>">
+        <input type="text"  id="latitud" placeholder="longitud" disabled  value="<?php echo $_SESSION["longitud"];?>">
     </div>
 </div>
 <div class="wrapRest2">
     <a href="https://developers.google.com/maps/documentation/maps-static/dev-guide?hl=es" target="_blank">Ir a API de Google MAP Static</a>
-    <p>Consumiendo Servicio Rest que introduces una<br> localidad te muestra un mapoa estatico</p>
+    <p>Consumiendo Servicio Rest que introduces una<br> localidad te muestra un mapa estatico</p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset>
             <label for="">Poblacion</label><br>
-            <input type="text" name="direccionMapaEstatico" placeholder="Introduce Ciudad" value="<?php
-            if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
-                echo $_SESSION["mapaEstatico"];
-            }
-            ?>">
+            <input type="text" name="direccionMapaEstatico" placeholder="Introduce Ciudad" value="<?php echo $_SESSION["mapaEstatico"];?>">
                    <?php if ($aErrores['direccionMapaEstatico'] != NULL) { ?>
                 <div class="error">
                     <?php echo $aErrores['direccionMapaEstatico']; //Mensaje de error que tiene el array aErrores ?>
@@ -67,14 +51,9 @@
     </form>
     <h2 class="mapaEstatico">Mapa estatico</h2>
     <div class="cordenadas">
-        <img src="<?php
-        if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
-            echo $_SESSION["URLmapaEstatico"];
-        }
-        ?>">
+        <img src="<?php echo $_SESSION["URLmapaEstatico"];?>">
     </div>
 </div>
-
 <div class="wrapRest83">
     <a href="DOC/apirestpropia.pdf" target="_blank">Como Funciona Mi API</a>
     <p>API propia para que pasa el volumen de negocio<br>por URL introduciendo un codigo</p>
