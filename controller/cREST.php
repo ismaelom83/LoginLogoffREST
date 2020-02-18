@@ -36,8 +36,8 @@ $aErrores = [//Inicializamos un array que se encargara de recoger los errores(Ca
 if (!isset($_SESSION['volumenFinal'])) {
     $_SESSION['volumenFinal'] = "";
 }
-if (!isset($_SESSION['MYAPIPROPIA'])) {
-    $_SESSION['MYAPIPROPIA'] = "";
+if (!isset($_SESSION['myAPI'])) {
+    $_SESSION['myAPI'] = "";
 }
 if (!isset($_SESSION['poblacion'])) {
     $_SESSION['poblacion'] = "";
@@ -119,20 +119,20 @@ if (isset($_GET['solicitarResPropia'])) { //my prpopia api rest
             $entradaOK = false;
             //inicialixzamos las sesiones por si sale un error
             $_SESSION['volumenFinal'] = "";
-            $_SESSION['MYAPIPROPIA'] = "";
+            $_SESSION['myAPI'] = "";
         }
     }
     if ($entradaOK) {
-        $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];
-        $volumenPropio = REST::myApiREST($_SESSION['MYAPIPROPIA']);
+        $_SESSION['myAPI'] = $_GET['departamentoAPI'];
+        $volumenPropio = REST::myApiREST($_SESSION['myAPI']);
         if (is_null($volumenPropio)) {
             //inicializamos las sesiones  si sale un error
             $aErrores['solicitarAPIPropia'] = "Este departamento no existe.";
-            $_SESSION['MYAPIPROPIA'] = "";
+            $_SESSION['myAPI'] = "";
             $_SESSION['volumenFinal'] = "";
         } else {
             //asignamos valor a las sesiones para mostrar en la vista. 
-            $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];
+            $_SESSION['myAPI'] = $_GET['departamentoAPI'];
             $_SESSION['volumenFinal'] = $volumenPropio;
         }
     }

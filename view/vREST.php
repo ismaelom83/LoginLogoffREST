@@ -60,7 +60,7 @@
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <fieldset>
             <label for="">Departamento</label><br>
-            <input type="text" name="departamentoAPI" placeholder="Introduce Departamento" value="<?php echo $_SESSION['MYAPIPROPIA'];?>">
+            <input type="text" name="departamentoAPI" placeholder="Introduce Departamento" value="<?php echo $_SESSION['myAPI'];?>">
                    <?php if ($aErrores['solicitarAPIPropia'] != NULL) { ?>
                 <div class="error">
                     <?php echo $aErrores['solicitarAPIPropia']; //Mensaje de error que tiene el array aErrores ?>

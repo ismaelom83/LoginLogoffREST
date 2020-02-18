@@ -13,6 +13,7 @@ if (isset($_REQUEST["cerrarSesion"])) {
     unset($_SESSION['DAW209POOusuario']);
     unset($_SESSION['DAW209POODepartamento']);
     unset($_SESSION['pagina']);
+    unset($_SESSION['usuarioAdmin']);
     //nos dirige al login
     header("location: index.html");
 }
