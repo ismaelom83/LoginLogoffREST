@@ -2,11 +2,15 @@
 if (isset($_REQUEST["cerrarSesion"])) {//si pulsamos salir nos saca del incio y nos lleva de nuevo al login
     unset($_SESSION['DAW209POOusuario']);//destruye la sesion del usuario
     unset($_SESSION['pagina']);//nos dirige al login
+    unset($_SESSION['volumenFinal']);
+    unset($_SESSION['MYAPIPROPIA']);
     header("location: index.html");
 }
 if (isset($_POST["volverInicio"])) {
     header('Location: index.php'); //Se le redirige al index
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
+    unset($_SESSION['volumenFinal']);
+    unset($_SESSION['MYAPIPROPIA']);
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
@@ -18,6 +22,13 @@ $aErrores = [//Inicializamos un array que se encargara de recoger los errores(Ca
     'direccionMapaEstatico' => null,
     'solicitarAPIPropia' => null
 ];
+
+if(!isset($_SESSION['volumenFinal'])){
+    $_SESSION['volumenFinal'] = "";
+}
+if(!isset($_SESSION['MYAPIPROPIA'])){
+    $_SESSION['MYAPIPROPIA'] = "";
+}
 
 
 if (isset($_GET["solicitarRest"]) ) {//si hemos pulsado el boton de solocuitar del formularioo entramos.
@@ -65,11 +76,13 @@ if (isset($_GET['solicitarResPropia'])) { //my prpopia api rest
     if ($entradaOK) {   
         $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];   
         $volumenPropio = REST::myApiREST($_SESSION['MYAPIPROPIA']);
-        $_SESSION['volumenFinal'] = $volumenPropio;
+//        $_SESSION['volumenFinal'] = $volumenPropio;
         if (is_null($volumenPropio)) { 
             $aErrores['solicitarAPIPropia'] = "Este departamento no existe.";
+            $_SESSION['MYAPIPROPIA'] = "";
              $_SESSION['volumenFinal'] = "";
         }else{
+             $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];
             $_SESSION['volumenFinal'] = $volumenPropio;
         }
     }
