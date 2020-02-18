@@ -40,7 +40,7 @@
             <?php } ?> 
         </aside>
         <footer>
-            <div class="footer-img"> <a href="../../../index.php">© 2020 Copyright: Ismael Heras Salvador</a> 
+            <div class="footer-img"> <a href="../../../index.php" target="_blank">© 2020 Copyright: Ismael Heras Salvador</a> 
                 <a href="http://daw-usgit.sauces.local/heras/LoginLogoffREST/tree/master" target="_blank" >
                     <img  src="WEBBROOT/img/gitLab.png" alt="GitLab"></a>
                 
