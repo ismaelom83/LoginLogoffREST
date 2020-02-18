@@ -1,8 +1,7 @@
 <?php
-
-if (isset($_REQUEST["cerrarSesion"])) {//si pulsamos salir nos saca del incio y nos lleva de nuevo al login
-    unset($_SESSION['DAW209POOusuario']); //destruye la sesion del usuario
-    unset($_SESSION['pagina']); //nos dirige al login
+if (isset($_REQUEST["cerrarSesion"])) {//cerramos sesion y destruimos todas las variables de sesion
+    unset($_SESSION['DAW209POOusuario']); 
+    unset($_SESSION['pagina']); 
     unset($_SESSION['volumenFinal']);
     unset($_SESSION['MYAPIPROPIA']);
     unset($_SESSION['poblacion']);
@@ -12,7 +11,7 @@ if (isset($_REQUEST["cerrarSesion"])) {//si pulsamos salir nos saca del incio y 
     unset($_SESSION['mapaEstatico']);
     header("location: index.html");
 }
-if (isset($_POST["volverInicio"])) {
+if (isset($_POST["volverInicio"])) {//volvemos  al inicio y destruimos todas las variables de sesion que utilizamos para manejar los tres formularios
     header('Location: index.php'); //Se le redirige al index
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
     unset($_SESSION['volumenFinal']);
@@ -20,7 +19,7 @@ if (isset($_POST["volverInicio"])) {
     unset($_SESSION['poblacion']);
     unset($_SESSION['longitud']);
     unset($_SESSION['latitud']);
-     unset($_SESSION['URLmapaEstatico']);
+    unset($_SESSION['URLmapaEstatico']);
     unset($_SESSION['mapaEstatico']);
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
@@ -33,7 +32,7 @@ $aErrores = [//Inicializamos un array que se encargara de recoger los errores(Ca
     'direccionMapaEstatico' => null,
     'solicitarAPIPropia' => null
 ];
-
+//comprobamos que existen las sesiones para mandar a la vista
 if (!isset($_SESSION['volumenFinal'])) {
     $_SESSION['volumenFinal'] = "";
 }
@@ -61,6 +60,10 @@ if (isset($_GET["solicitarRest"])) {//API rRest de google geolocation
     foreach ($aErrores as $key => $value) {
         if ($value != NULL) {
             $entradaOK = false;
+            //inicialixzamos las sesiones por si sale un error
+            $_SESSION['longitud'] = "";
+            $_SESSION['latitud'] = "";
+            $_SESSION['poblacion'] = "";
         }
     }
     if ($entradaOK) {
@@ -69,12 +72,13 @@ if (isset($_GET["solicitarRest"])) {//API rRest de google geolocation
         $coordenadas = Rest::cordenadas($_SESSION["poblacion"]); //pedimos a la clase rest el metodo para traducir las cordenadas.
         //guardamos en variables la longitusd y la latitud para darselas a lña vista y quer las muestre.
         if (is_null($coordenadas)) {
+             //inicializamos las sesiones  si sale un error
             $aErrores['direccion'] = "Esta direccion no existe.";
             $_SESSION['longitud'] = "";
             $_SESSION['latitud'] = "";
             $_SESSION['poblacion'] = "";
         } else {
-            $_SESSION["poblacion"] = $_GET["direccion"];
+            //asignamos valor a las sesiones para mostrar en la vista. 
             $_SESSION["longitud"] = $coordenadas->getLongitud();
             $_SESSION["latitud"] = $coordenadas->getLatitud();
         }
@@ -85,18 +89,24 @@ if (isset($_GET["solicitarRestMapa"])) {//API rRest de google static maps
     foreach ($aErrores as $key => $value) {//Autenticación con la base de datos
         if ($value != NULL) {
             $entradaOK = false;
+            //inicialixzamos las sesiones por si sale un error
+            $_SESSION["mapaEstatico"] = "";
+            $_SESSION["URLmapaEstatico"] = "";
         }
     }
     if ($entradaOK) {
         $_SESSION["mapaEstatico"] = $_GET["direccionMapaEstatico"]; //guardamo en una variable la direccion del formulario para saber la direcion del mapa estatico.
         //requerimos la clase rest para que nos de el metodo mapaaestatico y conseguir la url con las cordenadas de la localidad y nos lo muestre la vista
         //el metodo nos pide la direcion que introducimos en el input.
-       $urlMapaEstatico  = Rest::mapaEstatico($_SESSION["mapaEstatico"]);
-        if(is_null($urlMapaEstatico)){
+        $urlMapaEstatico = Rest::mapaEstatico($_SESSION["mapaEstatico"]);
+        if (is_null($urlMapaEstatico)) {
+            //inicializamos las sesiones  si sale un error
             $aErrores['direccionMapaEstatico'] = "No existe esta direccion";
+            $_SESSION["mapaEstatico"] = "";
             $_SESSION["URLmapaEstatico"] = "";
-        }else{
-            $_SESSION["URLmapaEstatico"] =$urlMapaEstatico;
+        } else {
+            //asignamos valor a las sesiones para mostrar en la vista. 
+            $_SESSION["URLmapaEstatico"] = $urlMapaEstatico;
         }
     }
 }
@@ -107,17 +117,21 @@ if (isset($_GET['solicitarResPropia'])) { //my prpopia api rest
     foreach ($aErrores as $key => $value) {
         if ($value != NULL) {
             $entradaOK = false;
+            //inicialixzamos las sesiones por si sale un error
             $_SESSION['volumenFinal'] = "";
+            $_SESSION['MYAPIPROPIA'] = "";
         }
     }
     if ($entradaOK) {
         $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];
         $volumenPropio = REST::myApiREST($_SESSION['MYAPIPROPIA']);
         if (is_null($volumenPropio)) {
+            //inicializamos las sesiones  si sale un error
             $aErrores['solicitarAPIPropia'] = "Este departamento no existe.";
             $_SESSION['MYAPIPROPIA'] = "";
             $_SESSION['volumenFinal'] = "";
         } else {
+            //asignamos valor a las sesiones para mostrar en la vista. 
             $_SESSION['MYAPIPROPIA'] = $_GET['departamentoAPI'];
             $_SESSION['volumenFinal'] = $volumenPropio;
         }
