@@ -95,7 +95,7 @@ class Rest{
         //Iniciamos el curl
         $curl = curl_init(); 
         //Preparamos la url de la api con el departamento que buscamos
-        $url = "http://192.168.1.245/proyectoDWES/LoginLogoffREST/api/apiRest.php?codigo=" . $codDepartamento; 
+        $url = "http://daw209.sauces.local/proyectoDWES/LoginLogoffREST/api/apiRest.php?codigo=" . $codDepartamento; 
         //Le decimos que queremos los datos de esa url
         curl_setopt($curl, CURLOPT_URL, $url); 
         //le decimos que lo guarde en "curl_exec" en vez de mostrarlo

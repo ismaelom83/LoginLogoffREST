@@ -7,15 +7,14 @@
             <label for="">Poblacion</label><br>
             <input type="text" name="direccion" placeholder="Introduce Ciudad" value="<?php
             if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-                echo $poblacion ;
+                echo $_SESSION["poblacion"];
             }
             ?>">
-
-            <?php if ($aErrores['direccion'] != NULL) { ?>
+                <?php if ($aErrores['direccion'] != NULL) { ?>
                 <div class="error">
-                    <?php echo $aErrores['direccion']; //Mensaje de error que tiene el array aErrores?>
+                <?php echo $aErrores['direccion']; //Mensaje de error que tiene el array aErrores ?>
                 </div>   
-            <?php } ?>  
+<?php } ?>  
             <br><br>
             <div class="botonesRest">
                 <input type="submit" name="solicitarRest" value="Solicitar servicio REST"  class="form-control  btn btn-secondary mb-1">  
@@ -30,17 +29,16 @@
         <label for="latitud">Latitud</label>
         <input type="text"  id="latitud" placeholder="latitud" disabled  value="<?php
         if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-            echo trim($latitud);
+            echo $_SESSION["latitud"];
         }
         ?>">
         <br>
         <label for="longitud">Longitud</label>
         <input type="text"  id="latitud" placeholder="longitud" disabled  value="<?php
-        if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
-            echo trim($longitud);
-        }
-        ?>">
-
+               if (isset($_GET["solicitarRest"]) && !$entradaOK == null) {
+                   echo $_SESSION["longitud"];
+               }
+               ?>">
     </div>
 </div>
 <div class="wrapRest2">
@@ -50,15 +48,15 @@
         <fieldset>
             <label for="">Poblacion</label><br>
             <input type="text" name="direccionMapaEstatico" placeholder="Introduce Ciudad" value="<?php
-            if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
-                echo $direccionMapaEstatico;
-            }
-            ?>">
-                   <?php if ($aErrores['direccionMapaEstatico'] != NULL) { ?>
+                   if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
+                       echo $_SESSION["mapaEstatico"];
+                   }
+                   ?>">
+            <?php if ($aErrores['direccionMapaEstatico'] != NULL) { ?>
                 <div class="error">
-                    <?php echo $aErrores['direccionMapaEstatico']; //Mensaje de error que tiene el array aErrores?>
+    <?php echo $aErrores['direccionMapaEstatico']; //Mensaje de error que tiene el array aErrores ?>
                 </div>   
-            <?php } ?>  
+<?php } ?>  
             <br><br>
             <div class="botonesRest">
                 <input type="submit" name="solicitarRestMapa" value="Solicitar servicio REST"  class="form-control  btn btn-secondary mb-1">  
@@ -70,10 +68,10 @@
     <h2 class="mapaEstatico">Mapa estatico</h2>
     <div class="cordenadas">
         <img src="<?php
-        if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
-            echo $urlMapaEtatico;
-        }
-        ?>">
+             if (isset($_GET["solicitarRestMapa"]) && !$entradaOK == null) {
+                 echo $_SESSION["URLmapaEstatico"];
+             }
+             ?>">
     </div>
 </div>
 
@@ -84,15 +82,15 @@
         <fieldset>
             <label for="">Departamento</label><br>
             <input type="text" name="departamentoAPI" placeholder="Introduce Departamento" value="<?php
-            if (isset($_GET["solicitarResPropia"]) && !$entradaOK == null) {
-                echo $_SESSION['MYAPIPROPIA'];
-            }
-            ?>">
-                   <?php if ($aErrores['solicitarAPIPropia'] != NULL) { ?>
+                   if (isset($_GET["solicitarResPropia"]) && !$entradaOK == null) {
+                       echo $_SESSION['MYAPIPROPIA'];
+                   }
+                   ?>">
+            <?php if ($aErrores['solicitarAPIPropia'] != NULL) { ?>
                 <div class="error">
-                    <?php echo $aErrores['solicitarAPIPropia']; //Mensaje de error que tiene el array aErrores?>
+    <?php echo $aErrores['solicitarAPIPropia']; //Mensaje de error que tiene el array aErrores ?>
                 </div>   
-            <?php } ?>  
+<?php } ?>  
             <br><br>
             <div class="botonesRest">
                 <input type="submit" name="solicitarResPropia" value="Solicitar servicio REST Propio"  class="form-control  btn btn-secondary mb-1">  
@@ -101,14 +99,14 @@
             </div>
         </fieldset>
     </form>
-       <div class="cordenadas">
+    <div class="cordenadas">
         <h2>VolumenNegocio</h2>
         <label for="myAPI">VolumenNegocio</label>
         <input type="text"  id="myAPI" placeholder="VolumenNegocio" disabled  value="<?php
-        if (isset($_GET["solicitarResPropia"]) && !$entradaOK == null) {
-            echo $_SESSION['volumenFinal'];
-        }
-        ?>">
+               if (isset($_GET["solicitarResPropia"]) && !$entradaOK == null) {
+                   echo $_SESSION['volumenFinal'];
+               }
+               ?>">
     </div>
 </div>
 
