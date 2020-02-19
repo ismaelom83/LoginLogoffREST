@@ -22,7 +22,6 @@ if (isset($_GET["codigo"])) {
     }
 } else {
     echo json_encode(null);
-    die;
 }
 
 

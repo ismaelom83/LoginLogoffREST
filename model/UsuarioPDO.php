@@ -27,7 +27,6 @@ require_once 'Usuario.php';
  * 
  */
 
-
 class UsuarioPDO {
     /**
      * funcion que valida usuarios y pide a la clase DBPDO el metodo ejecutarConsultas
