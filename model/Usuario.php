@@ -135,7 +135,7 @@ class Usuario{
      * 
      * Setter para modificar el atributo
      * 
-     * @param type string  
+     * @param  codUsuario 
      */
     function setCodUsuario($codUsuario) {
         $this->codUsuario = $codUsuario;
@@ -146,7 +146,7 @@ class Usuario{
      * 
      * Setter para modificar el atributo
      * 
-     * @param type string
+     * @param e descUsuario
      */
     function setDescUsuario($descUsuario) {
         $this->descUsuario = $descUsuario;
@@ -157,7 +157,7 @@ class Usuario{
      * 
      * Setter para modificar el atributo
      * 
-     * @param type string 
+     * @param  password
      */
     function setPassword($password) {
         $this->password = $password;
@@ -168,7 +168,7 @@ class Usuario{
      * 
      * Setter para modificar el atributo
      * 
-     * @param type string 
+     * @param  perfil
      */ 
     function setPerfil($perfil) {
         $this->perfil = $perfil;
@@ -176,7 +176,7 @@ class Usuario{
 /**
  * Setter para modificar el atributo
  * 
- * @param type data 
+ * @param  ultimaConexio
  */
     function setUltimaConexion($ultimaConexion) {
         $this->ultimaConexion = $ultimaConexion;
@@ -186,7 +186,7 @@ class Usuario{
  * 
  * Setter para modificar el atributo
  * 
- * @param type int 
+ * @param  contadorAccesos
  */
     function setContadorAccesos($contadorAccesos) {
         $this->contadorAccesos = $contadorAccesos;

@@ -1,16 +1,4 @@
 
-<!--<div class="wrap wrap1">
-    <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <fieldset>                  
-          
-            <div class="botones2"> 
-                <br><br>
-                <input type="submit" name="altaDep" class="btn btn-secondary" value="AltaDepartamento"> 
-            </div>
-          
-        </fieldset>
-    </form>
-</div>-->
 <div class="wrap wrap2">
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <fieldset>                  

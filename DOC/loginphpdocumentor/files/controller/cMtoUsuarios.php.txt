@@ -1,0 +1,62 @@
+<?php
+
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
+if (isset($_REQUEST["cerrarSesion"])) {
+    //destruye la sesion del usuario
+    unset($_SESSION['DAW209POOusuario']);
+    unset($_SESSION['DAW209POODepartamento']);
+    unset($_SESSION['pagina']);
+    unset($_SESSION['usuarioAdmin']);
+    //nos dirige al login
+    header("location: index.html");
+}
+if (isset($_POST["volverInicio"])) {
+    $_SESSION['DAW209POOusuario'];
+    $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
+      header('Location: index.php'); //Se le redirige al index
+    exit;
+}
+if (isset($_GET['codigoBorrarUsuarios'])) {;
+    $_SESSION['usuarioAdmin'] = $_GET['codigoBorrarUsuarios'];
+    $_SESSION["pagina"] = "eliminarUsuario";
+    header('Location: index.php'); //Se le redirige al index
+    exit;
+}
+if (isset($_GET['codigoModificarUsuarios'])) {
+    $_SESSION['usuarioAdmin'] = $_GET['codigoModificarUsuarios'];
+    $_SESSION["pagina"] = "modificarUsuario";
+    header('Location: index.php'); //Se le redirige al index
+    exit;
+}
+if (isset($_POST['altaDep'])) {;
+    $_SESSION["pagina"] = "altaDep";
+    header('Location: index.php'); //Se le redirige al index
+    exit;
+}
+require_once 'model/Usuario.php';
+require_once 'model/UsuarioPDO.php';
+$descUsuarios = null;
+if (isset($_POST['enviarUsuarios'])) {//si esta definida la variable i no es null decimos que nuestro array es igual al valor que recogemos en el campo buscar 
+    $descUsuarios = $_POST['DescUsuarios'];
+}
+if ($descUsuarios != null) {
+    $obUsuario = UsuarioPDO::buscarUsuariosPorDescripcion("%".$descUsuarios."%");
+} else {
+    
+    $obUsuario = UsuarioPDO::buscarUsuarios();
+//    $_SESSION['DAW209POODepartamento'] = $obDepartamento;
+}
+
+//mostramos las vistas del rest
+$vista = $vistas["mUsuarios"];
+//metemos en la sesion en la pagina que estamos.
+$_SESSION["pagina"] = "mUsuarios";
+require_once $vistas["layout"];
+

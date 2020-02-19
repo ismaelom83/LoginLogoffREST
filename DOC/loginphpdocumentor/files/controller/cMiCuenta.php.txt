@@ -37,22 +37,19 @@ if (isset($_POST["editarUsuario"])) {
     }
 }else {
     $entradaOK = false; //mientras no se pulse el boton la variable esta el false.
-}
-    
+}   
    if ($entradaOK) {
        
     $descUsuario = $_POST["DescUsuario"];
     
     $codUsuario = $_SESSION['DAW209POOusuario']->getCodUsuario();
     
-            $objetoUsuario = UsuarioPDO::modificarUsuario($descUsuario, $codUsuario);
+            $objetoUsuario = UsuarioPDO::modificarCuenta($descUsuario, $codUsuario);
             $_SESSION['DAW209POOusuario'] = $objetoUsuario;
             $_SESSION['pagina'] = 'inicio';
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;
    }
-
-
     $usuario = $_SESSION["DAW209POOusuario"]->getCodUsuario();
     $descripcion = $_SESSION["DAW209POOusuario"]->getDescUsuario();
     $perfil =  $_SESSION["DAW209POOusuario"]->getPerfil();
@@ -60,7 +57,6 @@ if (isset($_POST["editarUsuario"])) {
     $vista = $vistas["miCuenta"];
 //metemos en la sesion en la pagina que estamos.
     $_SESSION["pagina"] = "miCuenta";
-
     require_once $vistas["layout"];
 
 

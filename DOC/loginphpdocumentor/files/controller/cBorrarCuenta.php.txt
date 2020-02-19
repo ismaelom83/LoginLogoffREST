@@ -23,7 +23,6 @@ if (isset($_POST["cancelar"])) {
     require_once $vistas["layout"]; //Se carga la vista correspondiente
     exit;
 }
-
 if (isset($_REQUEST["eliminarCuenta"])) {
 
     $codUsuario = $_SESSION['DAW209POOusuario']->getCodUsuario();
@@ -35,7 +34,6 @@ if (isset($_REQUEST["eliminarCuenta"])) {
     //nos dirige al login
     header("location: index.html");
 } else {
-
     $usuario = $_SESSION["DAW209POOusuario"]->getCodUsuario();
     $descripcion = $_SESSION["DAW209POOusuario"]->getDescUsuario();
     $perfil =  $_SESSION["DAW209POOusuario"]->getPerfil();
@@ -43,7 +41,6 @@ if (isset($_REQUEST["eliminarCuenta"])) {
     $vista = $vistas["borrarCuenta"];
 //metemos en la sesion en la pagina que estamos.
     $_SESSION["pagina"] = "borrarCuenta";
-
     require_once $vistas["layout"];
 }
 

@@ -18,9 +18,7 @@
     <?php } ?> 
      <?php if ($perfil == "administrador") { ?>
        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-           <input type="submit" class="btn btn-secondary" value="MantenimientoUsuarios" name="editarMiUsuario">
-            <br><br>
-            <input type="submit" class="btn btn-secondary" value="Ir a Servicio REST" name="rest">
+           <input type="submit" class="btn btn-secondary" value="MantenimientoUsuarios" name="mantenimientoUsuarios">
         </form>
     <?php } ?> 
 </div>

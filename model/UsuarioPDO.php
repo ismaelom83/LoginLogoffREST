@@ -7,6 +7,8 @@
      * @package      proyectoLoginLogoffREST
      * @author       Ismael Heras
      */
+include 'DBPDO.php';
+require_once 'Usuario.php';
 /**
  * Class UsuarioPDO
  *
@@ -24,15 +26,15 @@
  * 
  * 
  */
-include 'DBPDO.php';
-require_once 'Usuario.php';
+
+
 class UsuarioPDO {
     /**
      * funcion que valida usuarios y pide a la clase DBPDO el metodo ejecutarConsultas
      * 
      * @param type $codUsuario el codigo del usuario que recivimos en el formulario
      * @param type $password la contraseña del usuario que recivimos por el formulario
-     * @return type boolean devuelve un array con toos los valores de la base de datos del usuario
+     * @return type $obUsuario devuelve un array con toos los valores de la base de datos del usuario
      */
     public static function validarUsuario($codUsuario, $password) {
         //creamos una consulta para saber el codigo del usuario y la contraseña
@@ -146,7 +148,7 @@ class UsuarioPDO {
      * @version 1.6 
      * @param $descUsuario descripcion del departamento a buscar.
      * @param $codUsuario Código del departamento a buscar.
-     *@return type object $resultadoConsulta
+     *@return type $resultadoConsulta $resultadoConsulta
      **/
   public static function buscarUsuariosPorDescripcion($busqueda) {
         $consulta = "select * from T01_Usuarios where T01_DescUsuario LIKE ?;";
@@ -160,7 +162,7 @@ class UsuarioPDO {
      * 
      * buscar todos los usuarios
      * 
-     * @return  object
+     * @return  $resConsulta
      */
     public static function buscarUsuarios() {
        $consulta = "SELECT * FROM T01_Usuarios"; //Creacion de la consulta.

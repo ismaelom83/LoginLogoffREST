@@ -1,14 +1,23 @@
 <?php
+
+/**
+ * Short Description
+ *
+ * Long Description
+ *
+ * @package      proyectoLoginLogoffREST
+ * @author       Ismael Heras
+ */
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioPDO.php';
 //variable para controlar el formulario
 $entradaOK = true;
-$aErrores = [];//Array de los errores
+$aErrores = []; //Array de los errores
 if (isset($_POST["cerrarSesion"])) {//si pulsamos cerrar sesion destruye la sesion y nos lleva al inicio.
-  //destruye la sesion del usuario
+    //destruye la sesion del usuario
     unset($_SESSION['DAW209POOusuario']);
     header('Location: index.html'); //nos redirige al login
-    die();//con die() terminamos inmediatamente la ejecución del script, evitando que se envíe más salida al cliente.
+    die(); //con die() terminamos inmediatamente la ejecución del script, evitando que se envíe más salida al cliente.
 }
 //si pulsamos el boton nos lleva  al registro.
 if (isset($_POST["registro"])) {
@@ -43,11 +52,10 @@ if (isset($_POST["enviar"])) {
             //y por ultimo nos dirigimos al index.
             header("Location: index.php");
             exit;
-        } 
-    } 
-} else {
-    $vista = $vistas["login"];
-    //metemos en la sesion en la pagina que estamos.
-    $_SESSION["pagina"] = "login";
-    require_once $vistas["layout"];
+        }
+    }
 }
+$vista = $vistas["login"];
+//metemos en la sesion en la pagina que estamos.
+$_SESSION["pagina"] = "login";
+require_once $vistas["layout"];

@@ -1,0 +1,67 @@
+
+<div class="wrap wrap1">
+    <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <fieldset>                  
+          
+            <div class="botones2"> 
+                <br><br>
+                <input type="submit" name="altaDep" class="btn btn-secondary" value="AltaDepartamento"> 
+            </div>
+          
+        </fieldset>
+    </form>
+</div>
+<div class="wrap wrap2">
+    <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <fieldset>                  
+
+            <br><br>
+              BUSQUEDA POR DESCRIPCION: 
+              <input type="text" name="DescUsuarios" autocomplete="off"  placeholder="coincidencia con descripcion" id="buscar" value="<?php
+            if (isset($_POST['DescUsuarios'])) {
+                echo $_POST['DescUsuarios'];
+            }
+            ?>"> 
+                        <br><br>
+            <input type="submit" name="enviarUsuarios" class="btn btn-secondary" value="Buscar" id="enviar">
+            <br><br>
+        </fieldset>
+    </form>
+</div>
+<br>
+<div class="wrap">
+    <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+        <fieldset> 
+            <table border="1" class="tablaDepartamentos">
+                <thead>
+                    <tr>
+                        <th>
+                            Codigo
+                        </th>
+                        <th>
+                            Descripcion
+                        </th>
+                        <th>
+                            Perfil
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    while ($campoTabla = $obUsuario->fetchObject()) {
+
+                        echo '<tr>';
+                        echo "<td>" . '<b>' . $campoTabla->T01_CodUsuario . "</td>" . "<td>" . '</b>' . '<b>' . $campoTabla->T01_DescUsuario .
+                        "</td>" . "<td>" . '<b>' . $campoTabla->T01_Perfil . "</td>" . "<td>" . '<b>' . "<a href='" . $_SERVER['PHP_SELF'] . "?codigoModificarUsuarios=$campoTabla->T01_CodUsuario'><img src='WEBBROOT/img/modificar.png'/></a>" . "</td>"
+                              .  "<td>" . '<b>' . "<a href='" . $_SERVER['PHP_SELF'] . "?codigoBorrarUsuarios=$campoTabla->T01_CodUsuario '><img src='WEBBROOT/img/borrar2.png'/></a>" . "</td>" ;
+                        echo '</tr>';
+                    }
+                    
+                    ?>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</div>
+
+

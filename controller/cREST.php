@@ -1,9 +1,17 @@
 <?php
+/**
+     * Short Description
+     *
+     * Long Description
+     *
+     * @package      proyectoLoginLogoffREST
+     * @author       Ismael Heras
+     */
 if (isset($_REQUEST["cerrarSesion"])) {//cerramos sesion y destruimos todas las variables de sesion
     unset($_SESSION['DAW209POOusuario']); 
     unset($_SESSION['pagina']); 
     unset($_SESSION['volumenFinal']);
-    unset($_SESSION['MYAPIPROPIA']);
+    unset($_SESSION['myAPI']);
     unset($_SESSION['poblacion']);
     unset($_SESSION['longitud']);
     unset($_SESSION['latitud']);
@@ -15,7 +23,7 @@ if (isset($_POST["volverInicio"])) {//volvemos  al inicio y destruimos todas las
     header('Location: index.php'); //Se le redirige al index
     $_SESSION["pagina"] = "inicio"; //Se guarda en la variable de sesión la ventana de registro
     unset($_SESSION['volumenFinal']);
-    unset($_SESSION['MYAPIPROPIA']);
+    unset($_SESSION['myAPI']);
     unset($_SESSION['poblacion']);
     unset($_SESSION['longitud']);
     unset($_SESSION['latitud']);

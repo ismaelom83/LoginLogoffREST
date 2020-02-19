@@ -33,6 +33,10 @@
 class validacionFormularios {
 
     /**
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function comprobarAlfabetico();
      * @author Adrián Cando Oviedo
      * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
@@ -75,6 +79,11 @@ class validacionFormularios {
 // Si es un 1 es obligatorio, si es un 0 no lo es
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function comprobarAlfaNumerico();        
      * @author Adrián Cando Oviedo
      * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
@@ -110,6 +119,11 @@ class validacionFormularios {
 // Si es un 1 es obligatorio, si es un 0 no lo es
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @author Christian Muñiz de la Huerga
      * @function comprobarEntero();
      * @param $integer Número entero a comprobar
@@ -148,6 +162,11 @@ class validacionFormularios {
 // Si es un 1 es obligatorio, si es un 0 no lo es
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @author Christian Muñiz de la Huerga
      * @function comprobarFloat();
      * @param $float Número entero a comprobar
@@ -185,6 +204,11 @@ class validacionFormularios {
 // 
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarEmail();
      * @author Adrián Cando Oviedo
      * @version 1.3 He modificado el tratamiento de los mensajes de error, y las comprobaciones, adaptadas a la nueva forma de los mensajes. He eliminado los if innecesarios
@@ -224,6 +248,11 @@ class validacionFormularios {
 // Si el parámetro $obligatorio es un 1 es obligatorio, si es un 0 es opcional
 
     /**
+     * 
+     *  funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarURL();
      * @author Christian Muñiz de la Huerga
      * @param $url Cadena a comprobar.
@@ -245,6 +274,11 @@ class validacionFormularios {
     }
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarFecha();
      * @param $fecha Cadena a comprobar.
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
@@ -275,6 +309,11 @@ class validacionFormularios {
     }
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarDni();
      *
      * @param $dni cadena a comprobar.
@@ -308,6 +347,11 @@ class validacionFormularios {
     // Valida el código postal, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarCp();
      * @author Mario Casquero Jañez
      * @param $cp cadena a comprobar.
@@ -330,6 +374,11 @@ class validacionFormularios {
     // Valida el password, comprueba longitud y si al menos contiene una mayúscula y un número, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarPassword();
      * @author Mario Casquero Jañez
      * @param $passwd cadena a comprobar.
@@ -356,6 +405,11 @@ class validacionFormularios {
 // Valida el radio button, comprueba que tiene al menos un valor marcado, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarRadioB();
      * @author Mario Casquero Jañez
      * @param $radioB nombre del radio button o grupo de radio buttons.
@@ -378,6 +432,11 @@ class validacionFormularios {
 // Valida el radio button, comprueba que tiene al menos un valor marcado, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
 
     /**
+     * 
+     *  funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validarCheckBox();
      * @author Mario Casquero Jañez
      * @param $checkB nombre del checkbox o grupo ellos.
@@ -403,6 +462,10 @@ class validacionFormularios {
 // Return false esta vacio, true no esta vacio
 
     /**
+     * 
+     *  funcion
+     * 
+     * funcion realizacion
      * @function comprobarNoVacio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -426,6 +489,11 @@ class validacionFormularios {
 // Return false no es correcto, true es correcta
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function comprobarMaxTamanio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -448,6 +516,11 @@ class validacionFormularios {
 // Return false no es correcto, true es correcta
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function comprobarMinTamanio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -470,6 +543,11 @@ class validacionFormularios {
 // Devuelve True si es una fecha valida y un false si no la es
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validateFecha();
      *
      * @param $date Fecha a comprobar
@@ -482,6 +560,11 @@ class validacionFormularios {
     }
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @author Christian Muñiz de la Huerga
      * @function validarElementoEnLista();
      * @param $elementoElegido Elemento introducido que se va a comprobar.
@@ -502,6 +585,11 @@ class validacionFormularios {
     }
 
     /**
+     * 
+     * funcion
+     * 
+     * funcion realizacion
+     * 
      * @function validaTelefono(); 
      * @author Tania Mateos
      * @version 1.3 Modificada la comprobación de si está vacio. Modificada la devolución de la función, ahora devuelve nada o un mensaje de error.
