@@ -1,5 +1,6 @@
 
 $(function (){
+    alert("hola mundo");
     $('#buscar').on('keyup',mostrarLista);
     $('#buscar').on('focusout',valorSeleccionado);
     var valorEscrito;
@@ -22,7 +23,7 @@ $(function (){
         $('#sugerencias').empty();
         valorEscrito = $('#buscar').val();      
         //mostrar las opciones
-        $.post("controller/cMtoDepartamentos.php",{valor:valorEscrito}, function(respuesta){
+        $.post("controller/cAyax.php",{buscaDescripcion:valorEscrito}, function(respuesta){
             $(JSON.parse(respuesta)).each(function(){
                 $("#sugerencias").append("<option>" + this["desc"] + "</option>"); 
                 $('option').css("background-color","#f9f9f9");

@@ -25,6 +25,8 @@
             <br><br>
             <input type="submit" name="enviarDepartamentos" class="btn btn-secondary" value="Buscar" id="enviar">
             <br><br>
+            <select id="sugerencias" size="4" name="sugerencias" disabled>
+            </select>
         </fieldset>
     </form>
 </div>

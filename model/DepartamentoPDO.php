@@ -136,5 +136,29 @@ class DepartamentoPDO {
          }
         return true;
     }
+    
+    /**
+     * Función que devuelve descripciones.
+     * 
+     * Función que devuelve descripciones para que las utilice Ajax en MtoDepartamentos a la hora de sugerir departamentos en la búsqueda.
+     * @function sacarDescripciones();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param string $busqueda Texto escrito en el campo de búsqueda en MtoDepartamentos.
+     **/
+    public static function sacarDescripciones($busqueda){
+        $consulta="select T02_DescDepartamento from T02_Departamento where T02_DescDepartamento like ? LIMIT 4;";
+        $resultado = DBPDO::ejecutaConsulta($consulta, ["%$busqueda%"]);
+        if ($resultado->rowCount() != 0) {
+            $aDescripciones = array();
+            while ($resultadoFormateado = $resultado->fetchObject()) { //metemos en un array todas las descripciones de departamentos
+                $descripcion = $resultadoFormateado->T02_DescDepartamento;
+                $aDescripciones[] = array(
+                    "desc" => $descripcion
+                );
+            }
+            echo json_encode($aDescripciones); //Mostramos el resultado en formato json para que ayax pueda leerlo
+        }
+    }
    
 }
