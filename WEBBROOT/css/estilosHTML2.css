@@ -456,3 +456,24 @@ td{
     background: lightgrey;
     padding: 10px;
 }
+
+/*#coincidenciasDepartamentos{
+    overflow: hidden;
+    background-color: #f9f9f9; 
+    background-color: #e8e8e8;
+    border: 0px;
+    font-family: Arial;
+    width: 250px;
+    position: relative;
+    font-size: 15px;
+    left: 133px;
+    top: -145px;
+    display: inline-block;
+    z-index: 15;
+    border-radius: 0px 0px 10px 10px;
+    margin: 0;
+    height: 75px;
+}
+#coincidenciasDepartamentos option:hover{
+    cursor: pointer;
+}*/

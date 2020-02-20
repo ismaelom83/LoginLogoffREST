@@ -90,7 +90,7 @@ class Rest {
      * */
     public static function myApiREST($codDepartamento) {
         //formamos la url con el codigo de departamento que deseamos.
-        $url = "http://192.168.1.245/proyectoDWES/LoginLogoffREST/api/apiRest.php?codigo=" . $codDepartamento;
+        $url = "http://daw209.sauces.local/proyectoDWES/LoginLogoffREST/api/apiRest.php?codigo=" . $codDepartamento;
         //trasmite el fichero json a una cadena.
         $json = file_get_contents(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $url));
         //convertimos el string decoficado de json en una variable.
